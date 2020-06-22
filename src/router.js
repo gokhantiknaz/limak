@@ -15,17 +15,17 @@ export default new Router({
 		{
 			path: '/izin/izingiris',
 			name: 'izingiris',
-			component: () => import('./components/izin/izin-giris/izin-giris')
+			component: () => import('./components/izin/izin-giris/index.vue')
 		},
 		{
-			path: '/izin/izinlist',
+			path: '/izinlist',
 			name: 'izinlist',
-			component: () => import('./components/izin/izin-list/izin-list')
+			component: () => import('./components/izin/izin-list/index.vue')
 		},
 		{
-			path: '/izin/takvim',
+			path: '/takvim',
 			name: 'izintakvim',
-			component: () => import('./components/izin/izin-takvim/izin-takvim')
+			component: () => import('./components/izin/izin-takvim/index.vue')
 		},
 		{
 			path: '/sample',

@@ -56,7 +56,7 @@ export default {
             {
               label: "İzin Takvim",
               icon: "pi pi-fw pi-calendar",
-              to: "/izintakvim",
+              to: "/takvim",
             },
           ],
         },
