@@ -65,6 +65,11 @@ import TreeTable from 'primevue/treetable';
 import TriStateCheckbox from 'primevue/tristatecheckbox';
 import ValidationMessage from 'primevue/validationmessage';
 
+
+import IzinGiris from './components/izin/izin-giris/izin-giris'
+import IzinList from './components/izin/izin-list/izin-list'
+import IzinTakvim from './components/izin/izin-takvim/izin-takvim'
+
 import 'primevue/resources/themes/nova-light/theme.css';
 import 'primevue/resources/primevue.min.css';
 import 'primeflex/primeflex.css';
@@ -141,6 +146,10 @@ Vue.component('Tree', Tree);
 Vue.component('TreeTable', TreeTable);
 Vue.component('TriStateCheckbox', TriStateCheckbox);
 Vue.component('ValidationMessage', ValidationMessage);
+
+Vue.component('IzinGiris', IzinGiris);
+Vue.component('IzinList', IzinList);
+Vue.component('IzinTakvim', IzinTakvim);
 
 new Vue({
 	router,

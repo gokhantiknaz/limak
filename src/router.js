@@ -2,6 +2,7 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import Dashboard from './components/Dashboard.vue';
 
+
 Vue.use(Router);
 
 export default new Router({
@@ -10,6 +11,21 @@ export default new Router({
 			path: '/',
 			name: 'dashboard',
 			component: Dashboard
+		},
+		{
+			path: '/izin/izingiris',
+			name: 'izingiris',
+			component: () => import('./components/izin/izin-giris/izin-giris')
+		},
+		{
+			path: '/izin/izinlist',
+			name: 'izinlist',
+			component: () => import('./components/izin/izin-list/izin-list')
+		},
+		{
+			path: '/izin/takvim',
+			name: 'izintakvim',
+			component: () => import('./components/izin/izin-takvim/izin-takvim')
 		},
 		{
 			path: '/sample',
