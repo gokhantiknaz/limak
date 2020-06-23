@@ -1,22 +1,24 @@
-
 export default {
   name: 'izin-giris',
   components: {},
   props: [],
-  data () {
+  data() {
     return {
-
+      izin : new Object()
     }
+  },
+  create() {
+   
   },
   computed: {
 
   },
-  mounted () {
-
+  mounted() {
+    if (this.$route.params.izin) {
+      this.izin = this.$route.params.izin;
+    }
   },
   methods: {
 
   }
 }
-
-

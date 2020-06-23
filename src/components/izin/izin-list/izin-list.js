@@ -12,7 +12,7 @@ export default {
     }
   },
   created(){
-    this.izinServis= new izinService()
+    this.izinServis= new izinService();
   },
   computed: {
 
@@ -22,5 +22,10 @@ export default {
   },
   methods: {
 
+    izinguncelle(item)
+    {
+      this.selectedIzin= item.data;
+      this.$router.push({ name: 'izingiris', params: { izin: this.selectedIzin }})
+    }
   }
 }
