@@ -5,24 +5,36 @@ export default {
   props: [],
   data() {
     return {
+      izinturleri:null,
       izinlistesi: null,
       selectedIzin: null,
       izinServis: null,
-      word: ''
+      word: '',
+      openModalIzin: false,
 
     }
   },
   created() {
     this.izinServis = new izinService();
+  
+  
   },
   computed: {
 
   },
   mounted() {
-    this.izinServis.getAll().then(data => this.izinlistesi = data.data);
+    this.izinServis.getAll().then(data => this.izinlistesi = data.data);  
+    this.izinturleri= this.izinServis.getizinturleri();
   },
   methods: {
 
+    getizinturadi(izinturid)
+    {
+      return this.izinturleri.find(a=>a.value==izinturid).label;
+    },
+    exportCSV() {
+      this.$refs.dt.exportCSV();
+  },
     belgeindir(item){
       this.selectedIzin = item.data;
       this.word = this.selectedIzin.personel.adsoyad + "persnoeline ait izindir Başlama:"+ this.selectedIzin.baslamatarihi; 
@@ -50,10 +62,11 @@ export default {
         }
       })
     },
+
     izinsil(dialog, item) {
       this.selectedIzin = item.data;
       // this.izinService.delete(this.selectedIzin.id);
-   
+   this.selectedIzin=null;
       dialog.close();
     
     }

@@ -4,7 +4,7 @@ export default {
   props: [],
   data() {
     return {
-      izin : new Object()
+      izin : new Object(),
     }
   },
   create() {

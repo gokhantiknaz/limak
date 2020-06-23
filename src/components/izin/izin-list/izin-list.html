@@ -6,8 +6,12 @@
 
 
     <DataTable :value="izinlistesi" class="p-datatable-responsive" :selection.sync="selectedIzin" selectionMode="single"
-      dataKey="id" :paginator="true" :rows="10">
-   
+      dataKey="id" :paginator="true" :rows="10" ref="dt">
+      <!-- <template #header>
+        <div style="text-align: left">
+            <Button icon="pi pi-external-link" label="Export" @click="exportCSV($event)" />
+        </div>
+    </template> -->
       <Column field="personel.adsoyad" header="Personel" :sortable="true">
         <template #body="slotProps">
           <span class="p-column-title">Ad Soyad</span>
@@ -18,7 +22,7 @@
       <Column field="izinturid" header="İzin Türü" :sortable="true" filterMatchMode="contains">
         <template #body="slotProps">
           <span class="p-column-title">İzin Türü</span>
-          {{slotProps.data.izinturid}}
+          {{getizinturadi(slotProps.data.izinturid)}} 
         </template>
       
       </Column>
@@ -59,5 +63,8 @@
         </template>
       </Column>
     </DataTable>
+
+ 
+
   </div>
 </section>

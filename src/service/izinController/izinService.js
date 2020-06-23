@@ -48,7 +48,7 @@ export default class izinService {
             ]
         }
 
-        getizinTurleri()
+        getizinturleri()
         {
             return [{
                 label: "Yıllık İzin",
