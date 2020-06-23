@@ -1,5 +1,58 @@
-
 <section class="izin-list">
-  <h1>izin-list Component</h1>
-</section>
+  <div class="card card-w-title">
+    <h1>İzin Listesi</h1>
 
+    <Button label="Yeni Kayıt" style="margin-bottom: 10px" @click="$router.push('izingiris')" />
+
+
+    <DataTable :value="izinlistesi" class="p-datatable-responsive" :selection.sync="selectedIzin" selectionMode="single"
+      dataKey="id" :paginator="true" :rows="10">
+   
+      <Column field="personel.adsoyad" header="Personel" :sortable="true">
+        <template #body="slotProps">
+          <span class="p-column-title">Ad Soyad</span>
+          {{slotProps.data.personel.adsoyad}}
+        </template>
+      
+      </Column>
+      <Column field="izinturid" header="İzin Türü" :sortable="true" filterMatchMode="contains">
+        <template #body="slotProps">
+          <span class="p-column-title">İzin Türü</span>
+          {{slotProps.data.izinturid}}
+        </template>
+      
+      </Column>
+      <Column field="baslamatarihi" header="Başlama Tarihi" :sortable="true">
+        <template #body="slotProps">
+          <span class="p-column-title">Başlama Tarihi</span>
+          {{slotProps.data.baslamatarihi}}
+        </template>
+      
+      </Column>
+      <Column field="bitistarihi" header="Bitiş Tarihi" :sortable="true" filterMatchMode="in">
+        <template #body="slotProps">
+          <span class="p-column-title">Bitiş Tarihi</span>
+          {{slotProps.data.bitistarihi}}
+        </template>
+      
+      </Column>
+      <Column field="telefon" header="Telefon" :sortable="true" filterMatchMode="in">
+        <template #body="slotProps">
+          <span class="p-column-title">Telefon</span>
+          {{slotProps.data.telefon}}
+        </template>
+      
+      </Column>
+      <Column headerStyle="width: 8em; text-align: center" bodyStyle="text-align: center">
+      
+        <template #header>
+          <Button type="button" icon="pi pi-cog"></Button>
+        </template>
+        <template #body="slotProps">
+          <Button type="button" icon="pi pi-search" class="p-button-success" style="margin-right: .5em"></Button>
+          <Button type="button" icon="pi pi-pencil" class="p-button-warning"></Button>
+        </template>
+      </Column>
+    </DataTable>
+  </div>
+</section>

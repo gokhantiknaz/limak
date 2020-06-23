@@ -13,7 +13,7 @@ export default new Router({
 			component: Dashboard
 		},
 		{
-			path: '/izin/izingiris',
+			path: '/izingiris',
 			name: 'izingiris',
 			component: () => import('./components/izin/izin-giris/index.vue')
 		},
@@ -26,71 +26,6 @@ export default new Router({
 			path: '/takvim',
 			name: 'izintakvim',
 			component: () => import('./components/izin/izin-takvim/index.vue')
-		},
-		{
-			path: '/sample',
-			name: 'sample',
-			component: () => import('./components/SampleDemo.vue')
-		},
-		{
-			path: '/forms',
-			name: 'forms',
-			component: () => import('./components/FormsDemo.vue')
-		},
-		{
-			path: '/data',
-			name: 'data',
-			component: () => import('./components/DataDemo.vue')
-		},
-		{
-			path: '/panels',
-			name: 'panels',
-			component: () => import('./components/PanelsDemo.vue')
-		},
-		{
-			path: '/overlays',
-			name: 'overlays',
-			component: () => import('./components/OverlaysDemo.vue')
-		},
-		{
-			path: '/menus',
-            component: () => import('./components/MenusDemo.vue'),
-            children: [{
-                path: '',
-                component: () => import('./components/menu/PersonalDemo.vue')
-            },
-            {
-                path: '/menus/seat',
-                component: () => import('./components/menu/SeatDemo.vue')
-            },
-            {
-                path: '/menus/payment',
-                component: () => import('./components/menu/PaymentDemo.vue')
-            },
-            {
-                path: '/menus/confirmation',
-                component: () => import('./components/menu/ConfirmationDemo.vue')
-            }]
-        },
-		{
-			path: '/messages',
-			name: 'messages',
-			component: () => import('./components/MessagesDemo.vue')
-		},
-		{
-			path: '/charts',
-			name: 'charts',
-			component: () => import('./components/ChartsDemo.vue')
-		},
-		{
-			path: '/misc',
-			name: 'misc',
-			component: () => import('./components/MiscDemo.vue')
-		},
-		{
-			path: '/empty',
-			name: 'empty',
-			component: () => import('./components/EmptyPage.vue')
 		},
 		{
 			path: '/documentation',
