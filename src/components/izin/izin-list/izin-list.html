@@ -6,8 +6,12 @@
 
 
     <DataTable :value="izinlistesi" class="p-datatable-responsive" :selection.sync="selectedIzin" selectionMode="single"
-      dataKey="id" :paginator="true" :rows="10">
-   
+      dataKey="id" :paginator="true" :rows="10" ref="dt">
+      <!-- <template #header>
+        <div style="text-align: left">
+            <Button icon="pi pi-external-link" label="Export" @click="exportCSV($event)" />
+        </div>
+    </template> -->
       <Column field="personel.adsoyad" header="Personel" :sortable="true">
         <template #body="slotProps">
           <span class="p-column-title">Ad Soyad</span>
@@ -18,7 +22,7 @@
       <Column field="izinturid" header="İzin Türü" :sortable="true" filterMatchMode="contains">
         <template #body="slotProps">
           <span class="p-column-title">İzin Türü</span>
-          {{slotProps.data.izinturid}}
+          {{getizinturadi(slotProps.data.izinturid)}} 
         </template>
       
       </Column>
@@ -43,16 +47,24 @@
         </template>
       
       </Column>
-      <Column headerStyle="width: 8em; text-align: center" bodyStyle="text-align: center">
+      <Column headerStyle="width: 10em; text-align: center" bodyStyle="text-align: center">
       
         <template #header>
           <Button type="button" icon="pi pi-cog"></Button>
         </template>
         <template #body="slotProps">
-          <Button type="button" icon="pi pi-search" class="p-button-success" style="margin-right: .5em"></Button>
-          <Button type="button" icon="pi pi-pencil" class="p-button-warning"></Button>
+          <Button type="button" icon="pi pi-file" class="p-button-success" style="margin-right: .5em" @click="belgeindir(slotProps)"></Button>
+          <Button type="button" icon="pi pi-pencil" class="p-button-warning" style="margin-right: .5em"  @click="izinguncelle(slotProps)"></Button>
+          <Button type="button" icon="pi pi-trash" class="p-button-danger"  v-confirm="{
+            loader:true,
+            ok:dialog=> izinsil(dialog,slotProps), 
+            message: 'İzin silinecek. Emin misiniz?'
+          }"></Button>
         </template>
       </Column>
     </DataTable>
+
+ 
+
   </div>
 </section>

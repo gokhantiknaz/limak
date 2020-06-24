@@ -80,6 +80,22 @@ import '@fullcalendar/daygrid/main.min.css';
 import '@fullcalendar/timegrid/main.min.css';
 import './assets/layout/layout.scss';
 
+
+import VuejsDialog from 'vuejs-dialog';
+
+// include the default style
+import 'vuejs-dialog/dist/vuejs-dialog.min.css';
+ 
+// Tell Vue to install the plugin.
+
+Vue.use(VuejsDialog, {
+	html: true,
+	loader: true,
+	okText: 'Evet',
+	cancelText: 'İptal',
+	animation: 'bounce'
+  });
+
 Vue.use(ToastService);
 Vue.directive('tooltip', Tooltip);
 
