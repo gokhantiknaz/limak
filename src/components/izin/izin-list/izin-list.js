@@ -5,40 +5,46 @@ export default {
   props: [],
   data() {
     return {
-      izinturleri:null,
+      izinturleri: null,
       izinlistesi: null,
       selectedIzin: null,
       izinServis: null,
       word: '',
-      openModalIzin: false,
-
     }
   },
   created() {
     this.izinServis = new izinService();
-  
-  
+    this.izinlistesi = [];
+
   },
   computed: {
 
   },
   mounted() {
-    this.izinServis.getAll().then(data => this.izinlistesi = data.data);  
-    this.izinturleri= this.izinServis.getizinturleri();
+    this.izinServis.getAll().then(
+      res => this.izinlistesi = res.data.data
+    );
+
+    this.izinturleri = this.izinServis.getizinturleri();
   },
   methods: {
 
-    getizinturadi(izinturid)
-    {
-      return this.izinturleri.find(a=>a.value==izinturid).label;
+    getizinturadi(izinturid) {
+      let isim = this.izinturleri.find(a => a.id == izinturid);
+
+      if (isim)
+        return isim.izinturadi;
+      else
+        return "Belirsiz";
     },
     exportCSV() {
       this.$refs.dt.exportCSV();
-  },
-    belgeindir(item){
+    },
+    belgeindir(item) {
       this.selectedIzin = item.data;
-      this.word = this.selectedIzin.personel.adsoyad + "persnoeline ait izindir Başlama:"+ this.selectedIzin.baslamatarihi; 
-      var vm = this, word = `<html xmlns:o='urn:schemas-microsoft-com:office:office xmlns:w='urn:schemas-microsoft-com:office:word' 
+      this.word = this.selectedIzin.personel.adsoyad + "persnoeline ait izindir Başlama:" + this.selectedIzin.baslamatarihi;
+      var vm = this,
+        word = `<html xmlns:o='urn:schemas-microsoft-com:office:office xmlns:w='urn:schemas-microsoft-com:office:word' 
       xmlns='http://www.w3.org/TR/REC-html40'>
       <head><meta charset='utf-8'>
       <title>Export HTML to Word Document with JavaScript</title>
@@ -66,9 +72,9 @@ export default {
     izinsil(dialog, item) {
       this.selectedIzin = item.data;
       // this.izinService.delete(this.selectedIzin.id);
-   this.selectedIzin=null;
+      this.selectedIzin = null;
       dialog.close();
-    
+
     }
   }
 }

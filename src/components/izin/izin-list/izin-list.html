@@ -1,42 +1,49 @@
 <section class="izin-list">
   <div class="card card-w-title">
     <h1>İzin Listesi</h1>
-
+{{izinlistesi}}
     <Button label="Yeni Kayıt" style="margin-bottom: 10px" @click="$router.push('izingiris')" />
 
 
     <DataTable :value="izinlistesi" class="p-datatable-responsive" :selection.sync="selectedIzin" selectionMode="single"
-      dataKey="id" :paginator="true" :rows="10" ref="dt">
+      dataKey="_id" :paginator="true" :rows="10" ref="dt">
       <!-- <template #header>
         <div style="text-align: left">
             <Button icon="pi pi-external-link" label="Export" @click="exportCSV($event)" />
         </div>
     </template> -->
-      <Column field="personel.adsoyad" header="Personel" :sortable="true">
+      <Column field="personelBy.isim" header="Personel" :sortable="true">
         <template #body="slotProps">
           <span class="p-column-title">Ad Soyad</span>
-          {{slotProps.data.personel.adsoyad}}
+          {{slotProps.data.personelBy.isim}} / {{slotProps.data.personelBy.unvan}} / 
         </template>
       
       </Column>
-      <Column field="izinturid" header="İzin Türü" :sortable="true" filterMatchMode="contains">
+      <Column field="izinTipi" header="İzin Türü" :sortable="true" filterMatchMode="contains">
         <template #body="slotProps">
           <span class="p-column-title">İzin Türü</span>
-          {{getizinturadi(slotProps.data.izinturid)}} 
+          {{getizinturadi(slotProps.data.izinTipi)}} 
         </template>
       
       </Column>
-      <Column field="baslamatarihi" header="Başlama Tarihi" :sortable="true">
+      <Column field="basTarih" header="Başlama Tarihi" :sortable="true">
         <template #body="slotProps">
           <span class="p-column-title">Başlama Tarihi</span>
-          {{slotProps.data.baslamatarihi}}
+          {{slotProps.data.basTarih}}
         </template>
       
       </Column>
-      <Column field="bitistarihi" header="Bitiş Tarihi" :sortable="true" filterMatchMode="in">
+      <Column field="izinSuresi" header="İzin Süresi" :sortable="true">
+        <template #body="slotProps">
+          <span class="p-column-title">İzin Süresi</span>
+          {{slotProps.data.izinSuresi}}
+        </template>
+      
+      </Column>
+      <Column field="sonTarih" header="Bitiş Tarihi" :sortable="true" filterMatchMode="in">
         <template #body="slotProps">
           <span class="p-column-title">Bitiş Tarihi</span>
-          {{slotProps.data.bitistarihi}}
+          {{slotProps.data.sonTarih}}
         </template>
       
       </Column>

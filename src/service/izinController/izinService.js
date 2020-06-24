@@ -1,18 +1,16 @@
 import Axios from 'axios';
 
-const RESOURCE_NAME = 'http://www.json-generator.com/api/json/get/';
-//http://www.json-generator.com/api/json/get/coAwQjTJfm?indent=2
+//const RESOURCE_NAME = 'http://www.json-generator.com/api/json/get/';
 
-const post_Name = "https://en2w11bn19hw4.x.pipedream.net/";
+const post_Name = "";
 
 export default class izinService {
-    getAll() {
-            let methodName = "coAwQjTJfm?indent=2";
-            return Axios.get(RESOURCE_NAME + methodName);
+    async  getAll() {
+            let result = await Axios.get("https://izin.herokuapp.com/api/izin");
+            return result;
         }
         save(izin) {
-            let methodName = "post";
-            return Axios.post(post_Name + methodName, izin);
+            return Axios.post("https://izin.herokuapp.com/api/izin", izin);
         }
         delete(id) {
             let methodName = "delete?" + id;
@@ -20,59 +18,32 @@ export default class izinService {
                 data: id
             });
         }
-        getnvanBilgiler() {
-            return [{
-                    label: "Yazılım Uzmanı",
-                    value: 1
-                },
-                {
-                    label: "Kıdemli Yazılım Uzmanı",
-                    value: 2
-                },
-                {
-                    label: "Proje Müdür Yardımcısı",
-                    value: 3
-                },
-                {
-                    label: "Proje Müdürü",
-                    value: 4
-                },
-                {
-                    label: "Direktör",
-                    value: 5
-                },
-                {
-                    label: "Ceo",
-                    value: 6
-                },
-            ]
-        }
 
         getizinturleri()
         {
             return [{
-                label: "Yıllık İzin",
-                value: "1"
+                izinturadi: "Yıllık İzin",
+                id: "1"
             },
             {
-                label: "Ücretli İzin",
-                value: "2"
+                izinturadi: "Ücretli İzin",
+                id: "2"
             },
             {
-                label: "Ücretsiz İzin",
-                value: "3"
+                izinturadi: "Ücretsiz İzin",
+                id: "3"
             },
             {
-                label: "Rapor",
-                value: "4"
+                izinturadi: "Rapor",
+                id: "4"
             },
             {
-                label: "Mazaret",
-                value: "5"
+                izinturadi: "Mazaret",
+                id: "5"
             },
             {
-                label: "Hastalık",
-                value: "6"
+                izinturadi: "Hastalık",
+                id: "6"
             }]
         }
 
