@@ -79,7 +79,7 @@ export default {
     izinsil(dialog, item) {
       this.selectedIzin = item.data;
       this.izinServis.delete(this.selectedIzin._id).then(
-        result=>{
+        ()=>{
           const idx = this.izinlistesi.indexOf(this.selectedIzin)
           this.izinlistesi.splice(idx, 1)
         }
