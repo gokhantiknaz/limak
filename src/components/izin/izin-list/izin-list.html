@@ -15,32 +15,33 @@
       <Column field="personelBy.isim" header="Personel" :sortable="true">
         <template #body="slotProps">
           <span class="p-column-title">Ad Soyad</span>
-          {{slotProps.data.personelBy.isim}} / {{slotProps.data.personelBy.unvan}} / 
+          {{slotProps.data.personelBy.isim}} / {{slotProps.data.personelBy.unvan}} /
         </template>
-      
+
       </Column>
       <Column field="izinTipi" header="İzin Türü" :sortable="true" filterMatchMode="contains">
         <template #body="slotProps">
           <span class="p-column-title">İzin Türü</span>
-          {{getizinturadi(slotProps.data.izinTipi)}} 
+          {{getizinturadi(slotProps.data.izinTipi)}}
         </template>
-      
+
       </Column>
       <Column field="basTarih" header="Başlama Tarihi" :sortable="true">
         <template #body="slotProps">
           <span class="p-column-title">Başlama Tarihi</span>
-          <span>{{new Date(slotProps.data.basTarih).toLocaleString()}}</span>
-       
+
+          <span>{{new Date(slotProps.data.basTarih)}}</span>
+
         </template>
-      
+
       </Column>
-   
+
       <Column field="sonTarih" header="Bitiş Tarihi" :sortable="true" filterMatchMode="in">
         <template #body="slotProps">
           <span class="p-column-title">Bitiş Tarihi</span>
           <span>{{new Date(slotProps.data.sonTarih).toLocaleString()}}</span>
         </template>
-      
+
       </Column>
 
       <Column field="izinSuresi" header="İzin Süresi" :sortable="true">
@@ -48,24 +49,26 @@
           <span class="p-column-title">İzin Süresi</span>
           {{slotProps.data.izinSuresi}}
         </template> -->
-      
+
       </Column>
       <Column field="telefon" header="Telefon" :sortable="true" filterMatchMode="in">
         <template #body="slotProps">
           <span class="p-column-title">Telefon</span>
           {{slotProps.data.telefon}}
         </template>
-      
+
       </Column>
       <Column headerStyle="width: 10em; text-align: center" bodyStyle="text-align: center">
-      
+
         <template #header>
           <Button type="button" icon="pi pi-cog"></Button>
         </template>
         <template #body="slotProps">
-          <Button type="button" icon="pi pi-file" class="p-button-success" style="margin-right: .5em" @click="belgeindir(slotProps)"></Button>
-          <Button type="button" icon="pi pi-pencil" class="p-button-warning" style="margin-right: .5em"  @click="izinguncelle(slotProps)"></Button>
-          <Button type="button" icon="pi pi-trash" class="p-button-danger"  v-confirm="{
+          <Button type="button" icon="pi pi-file" class="p-button-success" style="margin-right: .5em"
+            @click="belgeindir(slotProps)"></Button>
+          <Button type="button" icon="pi pi-pencil" class="p-button-warning" style="margin-right: .5em"
+            @click="izinguncelle(slotProps)"></Button>
+          <Button type="button" icon="pi pi-trash" class="p-button-danger" v-confirm="{
             loader:true,
             ok:dialog=> izinsil(dialog,slotProps), 
             message: 'İzin silinecek. Emin misiniz?'
@@ -74,7 +77,7 @@
       </Column>
     </DataTable>
 
- 
+
 
   </div>
 </section>
