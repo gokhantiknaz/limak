@@ -1,22 +1,38 @@
+import personelService from '../../../service/personelController/personelService';
+import izinService from '../../../service/izinController/izinService';
 export default {
-  name: 'izin-giris',
+  name: 'izin-list',
   components: {},
   props: [],
   data() {
     return {
-      izin : new Object(),
+      izinturleri: null,
+      personellistesi: null,
+      personelServis: null,
+      izinServis : null,
+      unvanlistesi : null,
+      selectedpers : null,
+      selectedunvan : null,
+      selectedizinturu : null,
     }
   },
-  create() {
-   
+  created() {
+    this.personelServis = new personelService();
+    this.izinServis = new izinService();
+    this.personellistesi = []; 
+
   },
   computed: {
 
   },
   mounted() {
-    if (this.$route.params.izin) {
-      this.izin = this.$route.params.izin;
-    }
+    this.personelServis.getAll().then(
+      res => this.personellistesi = res.data.data
+      
+    );
+
+    this.izinturleri = this.izinServis.getizinturleri(); 
+    this.unvanlistesi = this.personelServis.getunvanBilgiler(); 
   },
   methods: {
 

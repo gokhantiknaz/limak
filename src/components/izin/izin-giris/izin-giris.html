@@ -1,7 +1,100 @@
+<section class="izin-giris">
+  <h1></h1>
 
-<section>
-  {{izin}}
-edenemememem
+  <div class="p-fluid">
+		<div class="p-grid">
+			<div class="p-col-12">
+        <div class="card card-w-title">
+         <h1>İzin Kayıt</h1>
+         <div class="p-grid">
+      
+      <div class="p-col-12 p-md-2">
+        <label htmlFor="dropdown">Personel</label>
+      </div>
+      <div class="p-col-12 p-md-4">
+        <Dropdown v-model="selectedpers"  :options="personellistesi" optionLabel="isim" placeholder="Personel Seçiniz" />
+      </div>
+
+     <!-- <div class="p-col-12 p-md-2">
+        <label htmlFor="autocomplete">Hakediş</label>
+      </div> 
+
+      <div class="p-col-12 p-md-4">
+        <label htmlFor="autocomplete" :options="personellistesi" optionLabel="isim">Hakedis</label>
+      </div>  -->
+
+      <!-- <div class="p-col-12 p-md-2">
+        <label htmlFor="autocomplete">Personel</label>
+      </div>
+      <div class="p-col-12 p-md-4">
+        <AutoComplete  placeholder="Personel Seçiniz"  @complete="searchPersonelBasic($event)" field="name" />
+      </div> -->
+
+      <div class="p-col-12 p-md-2">
+        <label htmlFor="dropdown">Ünvan Bilgileri</label>
+      </div>
+      <div class="p-col-12 p-md-4">
+        <Dropdown v-model="selectedunvan" :options="unvanlistesi"  optionLabel="unvanadi" placeholder="Ünvan Seçiniz" />
+      </div>
+
+      <div class="p-col-12 p-md-2">
+        <label htmlFor="dropdown">İzin Türü</label>
+      </div>
+      <div class="p-col-12 p-md-4">
+        <Dropdown v-model="selectedizinturu" :options="izinturleri" optionLabel="izinturadi" placeholder="İzin Türü Seçiniz" />
+      </div>
+
+      <div class="p-col-12 p-md-2">
+        <label htmlFor="input">Telefon Numarası</label>
+      </div>
+      <div class="p-col-12 p-md-4">
+        <InputText id="input" />
+      </div>
+      <div class="p-col-12 p-md-2">
+        <label htmlFor="calendar">Başlangıç Tarihi</label>
+      </div>
+      <div class="p-col-12 p-md-4">
+        <Calendar placeholder="Başlangıç Tarihi Seçiniz"  :showIcon="true"  />
+      </div>
+
+      <div class="p-col-12 p-md-2">
+        <label htmlFor="calendar">Bitiş Tarihi</label>
+      </div>
+      <div class="p-col-12 p-md-4">
+        <Calendar placeholder="Bitiş Tarihi Seçiniz" :showIcon="true" mask="99/99/9999"  slotChar="dd/mm/yyyy"
+        
+
+        />
+      </div>
+
+      <div class="p-col-12 p-md-2">
+        <label htmlFor="input">Toplam İzin Gün Sayısı</label>
+      </div>
+      <div class="p-col-12 p-md-4">
+        <InputText id="input" />
+      </div>
+
+    </div>
+
+      <Button label="Kaydet" icon="pi pi-check" class="p-button-success" style="width: 10em; margin-right: .25em"/>
+
+      <Button label="İptal" icon="pi pi-times"  class="p-button-danger" style="width: 10em; margin-right: .25em"/>
+
+
+</div>
+
+</div>
+  </div>
+</div>
+
+
+
 </section>
+
+
+
+
+
+
 
 
