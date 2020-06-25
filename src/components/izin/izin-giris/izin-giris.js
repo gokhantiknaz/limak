@@ -50,13 +50,18 @@ export default {
 
   },
   mounted() {
+    if (this.$route.params.izin) {
+      let izin = this.$route.params.izin;
+      
+      this.izin= izin;
 
+    }
   },
   methods: {
     izinhesapla() {
       const diffTime = Math.abs(this.izin.sonTarih - this.izin.basTarih);
       const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-      this.izin.izinSuresi = diffDays +1;
+      this.izin.izinSuresi = diffDays + 1;
     },
     izinkaydet() {
 

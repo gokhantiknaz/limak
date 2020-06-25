@@ -12,10 +12,10 @@
             <Button icon="pi pi-external-link" label="Export" @click="exportCSV($event)" />
         </div>
     </template> -->
-      <Column field="personelBy.isim" header="Personel" :sortable="true">
+      <Column field="personelBy.isim" header="Personel" :sortable="true" headerStyle="width: 20em" bodyStyle="text-align: center">
         <template #body="slotProps">
           <span class="p-column-title">Ad Soyad</span>
-          {{slotProps.data.personelBy.isim}} / {{slotProps.data.personelBy.unvan}} /
+          {{slotProps.data.personelBy.isim}} / {{slotProps.data.personelBy.unvan}}
         </template>
 
       </Column>
@@ -30,7 +30,7 @@
         <template #body="slotProps">
           <span class="p-column-title">Başlama Tarihi</span>
 
-          <span>{{new Date(slotProps.data.basTarih)}}</span>
+          <span>{{new Date(slotProps.data.basTarih).toLocaleDateString("tr-TR",options)}}</span>
 
         </template>
 
@@ -39,12 +39,12 @@
       <Column field="sonTarih" header="Bitiş Tarihi" :sortable="true" filterMatchMode="in">
         <template #body="slotProps">
           <span class="p-column-title">Bitiş Tarihi</span>
-          <span>{{new Date(slotProps.data.sonTarih).toLocaleString()}}</span>
+          <span>{{new Date(slotProps.data.sonTarih).toLocaleDateString("tr-TR",options)}}</span>
         </template>
 
       </Column>
 
-      <Column field="izinSuresi" header="İzin Süresi" :sortable="true">
+      <Column field="izinSuresi" header="İzin Süresi" :sortable="true" headerStyle="width: 10em" bodyStyle="text-align: center">
         <!-- <template #body="slotProps">
           <span class="p-column-title">İzin Süresi</span>
           {{slotProps.data.izinSuresi}}
