@@ -1,18 +1,25 @@
 <section class="izin-list">
   <div class="card card-w-title">
     <h1>İzin Listesi</h1>
-
     <Button label="Yeni Kayıt" style="margin-bottom: 10px" @click="$router.push('izingiris')" />
 
 
     <DataTable :value="izinlistesi" class="p-datatable-responsive" :selection.sync="selectedIzin" selectionMode="single"
-      dataKey="_id" :paginator="true" :rows="10" ref="dt">
+      dataKey="_id" :paginator="true" :rows="10" ref="dt" :loading="loading">
       <!-- <template #header>
         <div style="text-align: left">
             <Button icon="pi pi-external-link" label="Export" @click="exportCSV($event)" />
         </div>
     </template> -->
+
+    <template #empty>
+      Kayıt Bulunamadı.
+  </template>
+    <template #loading>
+     Yükleniyor. Lütfen Bekleyiniz...
+  </template>
       <Column field="personelBy.isim" header="Personel" :sortable="true" headerStyle="width: 20em" bodyStyle="text-align: center">
+       
         <template #body="slotProps">
           <span class="p-column-title">Ad Soyad</span>
           {{slotProps.data.personelBy.isim}} / {{slotProps.data.personelBy.unvan}}

@@ -5,6 +5,7 @@ export default {
   props: [],
   data() {
     return {
+      loading: true,
       izinturleri: null,
       izinlistesi: null,
       selectedIzin: null,
@@ -17,20 +18,23 @@ export default {
     this.izinServis = new izinService();
     this.izinlistesi = [];
 
-  
+
   },
   computed: {
 
   },
   mounted() {
-    this.izinServis.getAll().then(
-      res => this.izinlistesi = res.data.data
-    );
-
     this.izinServis.getizinturleri().then(a => {
-     
-      this.izinturleri = a.data.data
+      this.izinturleri = a.data.data;
+
+      this.izinServis.getAll().then(
+        res => {
+          this.izinlistesi = res.data.data
+          this.loading=false;
+        }
+      );
     });
+    
   },
   methods: {
 
