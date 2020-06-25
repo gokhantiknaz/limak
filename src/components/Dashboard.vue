@@ -128,7 +128,7 @@
 				<li>
 					<button class="p-link">
 						<img src="assets/layout/images/avatar_1.png" width="35" alt="avatar1"/>
-						<span class="name">Claire Williams</span>
+						<span class="name">Gökhan TIKNAZOĞLU</span>
 						<span class="email">clare@pf-sigma.com</span>
 					</button>
 				</li>

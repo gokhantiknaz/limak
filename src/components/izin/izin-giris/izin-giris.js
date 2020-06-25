@@ -22,7 +22,7 @@ export default {
         },
         basTarih: null,
         sonTarih: null,
-        izintipi: 1,
+        izinTipi: 1,
         adres: "",
         telefon: "",
 
@@ -34,23 +34,28 @@ export default {
     this.izinServis = new izinService();
     this.personellistesi = [];
 
+
+    this.personelServis.getAll().then(
+      res => this.personellistesi = res.data.data
+
+    );
+    this.izinServis.getizinturleri().then(a => {
+     
+      this.izinturleri = a.data.data
+    });
+
+    this.unvanlistesi = this.personelServis.getunvanBilgiler();
   },
   computed: {
 
   },
   mounted() {
-    this.personelServis.getAll().then(
-      res => this.personellistesi = res.data.data
-
-    );
-
-    this.izinturleri = this.izinServis.getizinturleri();
-    this.unvanlistesi = this.personelServis.getunvanBilgiler();
+  
   },
   methods: {
     izinkaydet() {
 
-       this.izinServis.save(this.izin).then(a => {
+      this.izinServis.save(this.izin).then(a => {
         console.log(a)
         this.$toast.add({
           severity: 'success',

@@ -41,7 +41,7 @@
         <label htmlFor="dropdown">İzin Türü</label>
       </div> 
       <div class="p-col-12 p-md-4">
-        <Dropdown v-model="izin.izintipi" :options="izinturleri" optionLabel="izinturadi" optionValue="id" placeholder="İzin Türü Seçiniz" />
+        <Dropdown v-model="izin.izinTipi" :options="izinturleri" optionLabel="izinTip" optionValue="izinTipId" placeholder="İzin Türü Seçiniz" />
       </div>
 
       <div class="p-col-12 p-md-2">
@@ -68,7 +68,7 @@
       </div>
 
       <div class="p-col-12 p-md-2">
-        <label htmlFor="input">Toplam İzin Gün Sayısı</label>
+        <label htmlFor="input">İzinli Gün</label>
       </div>
       <div class="p-col-12 p-md-4">
         <InputText id="input" v-model="izin.izinSuresi" />
@@ -84,8 +84,23 @@
           v-model="izin.adres"
           :autoResize="true"
           rows="3"
-          cols="30"
+          cols="72"
         />
+      </div>
+
+      <div class="p-col-12 p-md-2">
+        Yarım Gün?
+      </div>
+      <div class="p-col-12 p-md-4">
+        <div class="p-grid">
+          <div class="p-col-12">
+            <Checkbox
+              id="yarimgun"
+              v-model="izin.yarimgun"
+              :binary="true"
+            />
+          </div>
+        </div>
       </div>
     </div>
       <Button label="Kaydet" @click="izinkaydet()" icon="pi pi-check" class="p-button-success" style="width: 10em; margin-right: .25em"/>

@@ -15,6 +15,8 @@ export default {
   created() {
     this.izinServis = new izinService();
     this.izinlistesi = [];
+
+  
   },
   computed: {
 
@@ -24,15 +26,18 @@ export default {
       res => this.izinlistesi = res.data.data
     );
 
-    this.izinturleri = this.izinServis.getizinturleri();
+    this.izinServis.getizinturleri().then(a => {
+     
+      this.izinturleri = a.data.data
+    });
   },
   methods: {
 
     getizinturadi(izinturid) {
-      let isim = this.izinturleri.find(a => a.id == izinturid);
+      let isim = this.izinturleri.find(a => a.izinTipId == izinturid);
 
       if (isim)
-        return isim.izinturadi;
+        return isim.izinTip;
       else
         return "Belirsiz";
     },
@@ -74,7 +79,7 @@ export default {
       this.selectedIzin = item.data;
       this.izinServis.delete(this.selectedIzin._id).then(
         result=>{
-          const idx = this.notes.indexOf(this.selectedIzin)
+          const idx = this.izinlistesi.indexOf(this.selectedIzin)
           this.izinlistesi.splice(idx, 1)
         }
       );
