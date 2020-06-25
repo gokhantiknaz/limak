@@ -10,6 +10,7 @@ export default {
       selectedIzin: null,
       izinServis: null,
       word: '',
+      options : { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
     }
   },
   created() {
