@@ -40,7 +40,7 @@ export default {
 
     );
     this.izinServis.getizinturleri().then(a => {
-     
+
       this.izinturleri = a.data.data
     });
 
@@ -50,9 +50,14 @@ export default {
 
   },
   mounted() {
-  
+
   },
   methods: {
+    izinhesapla() {
+      const diffTime = Math.abs(this.izin.sonTarih - this.izin.basTarih);
+      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+      this.izin.izinSuresi = diffDays +1;
+    },
     izinkaydet() {
 
       this.izinServis.save(this.izin).then(a => {
@@ -65,7 +70,7 @@ export default {
         });
         this.$router.push("izinlist");
       });
-// deneme
+      // deneme
     },
 
   }
