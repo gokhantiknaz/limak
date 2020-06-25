@@ -2,26 +2,24 @@ import Axios from 'axios';
 
 //const RESOURCE_NAME = 'http://www.json-generator.com/api/json/get/';
 
-const post_Name = "";
 
 export default class izinService {
-    async  getAll() {
-            let result = await Axios.get("https://izin.herokuapp.com/api/izin");
-            return result;
-        }
-        save(izin) {
-            return Axios.post("https://izin.herokuapp.com/api/izin", izin);
-        }
-        delete(id) {
-            let methodName = "delete?" + id;
-            return Axios.delete(post_Name + methodName, {
-                data: id
-            });
-        }
+    async getAll() {
+        let result = await Axios.get("https://izin.herokuapp.com/api/izin");
+        return result;
+    }
+     save(izin) {
+        let result =  Axios.post("https://izin.herokuapp.com/api/izin", izin);
 
-        getizinturleri()
-        {
-            return [{
+        return result;
+    }
+    delete(id) {
+
+        return Axios.delete("https://izin.herokuapp.com/api/izin/" + id);
+    }
+
+    getizinturleri() {
+        return [{
                 izinturadi: "Yıllık İzin",
                 id: "1"
             },
@@ -44,7 +42,8 @@ export default class izinService {
             {
                 izinturadi: "Hastalık",
                 id: "6"
-            }]
-        }
+            }
+        ]
+    }
 
 }

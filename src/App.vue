@@ -10,7 +10,7 @@
       >
         <div class="layout-logo">
           <router-link to="/">
-          	<!-- <img src="assets/layout/images/limak-logo.jpg" width="250" height="70"/> -->
+          	<img src="assets/layout/images/limak.jpeg" width="250" height="70"/>
           </router-link>
         </div>
 

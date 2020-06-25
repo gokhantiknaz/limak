@@ -15,7 +15,6 @@ export default {
   created() {
     this.izinServis = new izinService();
     this.izinlistesi = [];
-
   },
   computed: {
 
@@ -42,7 +41,7 @@ export default {
     },
     belgeindir(item) {
       this.selectedIzin = item.data;
-      this.word = this.selectedIzin.personel.adsoyad + "persnoeline ait izindir Başlama:" + this.selectedIzin.baslamatarihi;
+      this.word = this.selectedIzin.personelBy.isim + "persnoeline ait izindir Başlama:" + this.selectedIzin.BasTarih;
       var vm = this,
         word = `<html xmlns:o='urn:schemas-microsoft-com:office:office xmlns:w='urn:schemas-microsoft-com:office:word' 
       xmlns='http://www.w3.org/TR/REC-html40'>
@@ -55,11 +54,13 @@ export default {
       var fileDownload = document.createElement("a");
       document.body.appendChild(fileDownload);
       fileDownload.href = source;
-      fileDownload.download = this.selectedIzin.personel.adsoyad + '_izin.doc';
+      fileDownload.download = this.selectedIzin.personelBy.isim + '_izin.doc';
       fileDownload.click();
       document.body.removeChild(fileDownload);
     },
+
     izinguncelle(item) {
+
       this.selectedIzin = item.data;
       this.$router.push({
         name: 'izingiris',
@@ -71,7 +72,12 @@ export default {
 
     izinsil(dialog, item) {
       this.selectedIzin = item.data;
-      // this.izinService.delete(this.selectedIzin.id);
+      this.izinServis.delete(this.selectedIzin._id).then(
+        result=>{
+          const idx = this.notes.indexOf(this.selectedIzin)
+          this.izinlistesi.splice(idx, 1)
+        }
+      );
       this.selectedIzin = null;
       dialog.close();
 

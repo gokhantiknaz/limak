@@ -1,6 +1,6 @@
 <section class="izin-giris">
   <h1></h1>
-
+  {{izin}}
   <div class="p-fluid">
 		<div class="p-grid">
 			<div class="p-col-12">
@@ -12,7 +12,7 @@
         <label htmlFor="dropdown">Personel</label>
       </div>
       <div class="p-col-12 p-md-4">
-        <Dropdown v-model="selectedpers"  :options="personellistesi" optionLabel="isim" placeholder="Personel Seçiniz" />
+        <Dropdown v-model="izin.personelBy"  :options="personellistesi" optionLabel="isim" placeholder="Personel Seçiniz" />
       </div>
 
      <!-- <div class="p-col-12 p-md-2">
@@ -34,27 +34,27 @@
         <label htmlFor="dropdown">Ünvan Bilgileri</label>
       </div>
       <div class="p-col-12 p-md-4">
-        <Dropdown v-model="selectedunvan" :options="unvanlistesi"  optionLabel="unvanadi" placeholder="Ünvan Seçiniz" />
+        <Dropdown v-model="izin.personelBy.unvan" :options="unvanlistesi"  optionLabel="unvanadi" placeholder="Ünvan Seçiniz" />
       </div>
 
       <div class="p-col-12 p-md-2">
         <label htmlFor="dropdown">İzin Türü</label>
-      </div>
+      </div> 
       <div class="p-col-12 p-md-4">
-        <Dropdown v-model="selectedizinturu" :options="izinturleri" optionLabel="izinturadi" placeholder="İzin Türü Seçiniz" />
+        <Dropdown v-model="izin.izintipi" :options="izinturleri" optionLabel="izinturadi" optionValue="id" placeholder="İzin Türü Seçiniz" />
       </div>
 
       <div class="p-col-12 p-md-2">
         <label htmlFor="input">Telefon Numarası</label>
       </div>
       <div class="p-col-12 p-md-4">
-        <InputText id="input" />
+        <InputText id="telefon" v-model="izin.telefon" mask="(999) 999-9999" />
       </div>
       <div class="p-col-12 p-md-2">
         <label htmlFor="calendar">Başlangıç Tarihi</label>
       </div>
       <div class="p-col-12 p-md-4">
-        <Calendar placeholder="Başlangıç Tarihi Seçiniz"  :showIcon="true"  />
+        <Calendar placeholder="Başlangıç Tarihi Seçiniz" :showIcon="true"  v-model="izin.basTarih" />
       </div>
 
       <div class="p-col-12 p-md-2">
@@ -62,7 +62,7 @@
       </div>
       <div class="p-col-12 p-md-4">
         <Calendar placeholder="Bitiş Tarihi Seçiniz" :showIcon="true" mask="99/99/9999"  slotChar="dd/mm/yyyy"
-        
+        v-model="izin.sonTarih"
 
         />
       </div>
@@ -71,15 +71,26 @@
         <label htmlFor="input">Toplam İzin Gün Sayısı</label>
       </div>
       <div class="p-col-12 p-md-4">
-        <InputText id="input" />
+        <InputText id="input" v-model="izin.izinSuresi" />
       </div>
 
-    </div>
 
-      <Button label="Kaydet" icon="pi pi-check" class="p-button-success" style="width: 10em; margin-right: .25em"/>
+      <div class="p-col-12 p-md-2">
+        <label htmlFor="textarea">İzindeki Adresi</label>
+      </div>
+      <div class="p-col-12 p-md-4">
+        <textarea
+          placeholder="Adres"
+          v-model="izin.adres"
+          :autoResize="true"
+          rows="3"
+          cols="30"
+        />
+      </div>
+    </div>
+      <Button label="Kaydet" @click="izinkaydet()" icon="pi pi-check" class="p-button-success" style="width: 10em; margin-right: .25em"/>
 
       <Button label="İptal" icon="pi pi-times"  class="p-button-danger" style="width: 10em; margin-right: .25em"/>
-
 
 </div>
 

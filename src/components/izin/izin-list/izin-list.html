@@ -1,7 +1,7 @@
 <section class="izin-list">
   <div class="card card-w-title">
     <h1>İzin Listesi</h1>
-{{izinlistesi}}
+
     <Button label="Yeni Kayıt" style="margin-bottom: 10px" @click="$router.push('izingiris')" />
 
 
@@ -34,18 +34,18 @@
       
       </Column>
       <Column field="izinSuresi" header="İzin Süresi" :sortable="true">
-        <template #body="slotProps">
+        <!-- <template #body="slotProps">
           <span class="p-column-title">İzin Süresi</span>
           {{slotProps.data.izinSuresi}}
-        </template>
+        </template> -->
       
       </Column>
       <Column field="sonTarih" header="Bitiş Tarihi" :sortable="true" filterMatchMode="in">
-        <template #body="slotProps">
+        <!-- <template #body="slotProps">
           <span class="p-column-title">Bitiş Tarihi</span>
           {{slotProps.data.sonTarih}}
         </template>
-      
+       -->
       </Column>
       <Column field="telefon" header="Telefon" :sortable="true" filterMatchMode="in">
         <template #body="slotProps">
