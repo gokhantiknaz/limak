@@ -65,7 +65,7 @@ export default {
         });
         this.$router.push("izinlist");
       });
-
+// deneme
     },
 
   }
