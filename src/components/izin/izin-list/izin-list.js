@@ -10,6 +10,7 @@ export default {
       selectedIzin: null,
       izinServis: null,
       word: '',
+      options : { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
     }
   },
   created() {
@@ -78,7 +79,7 @@ export default {
     izinsil(dialog, item) {
       this.selectedIzin = item.data;
       this.izinServis.delete(this.selectedIzin._id).then(
-        result=>{
+        ()=>{
           const idx = this.izinlistesi.indexOf(this.selectedIzin)
           this.izinlistesi.splice(idx, 1)
         }

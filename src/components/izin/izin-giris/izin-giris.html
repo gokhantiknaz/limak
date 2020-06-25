@@ -1,92 +1,71 @@
 <section class="izin-giris">
-  <h1></h1>
-  {{izin}}
+
   <div class="p-fluid">
-		<div class="p-grid">
-			<div class="p-col-12">
+    <div class="p-grid">
+      <div class="p-col-12">
         <div class="card card-w-title">
-         <h1>İzin Kayıt</h1>
-         <div class="p-grid">
-      
-      <div class="p-col-12 p-md-2">
-        <label htmlFor="dropdown">Personel</label>
-      </div>
-      <div class="p-col-12 p-md-4">
-        <Dropdown v-model="izin.personelBy"  :options="personellistesi" optionLabel="isim" placeholder="Personel Seçiniz" />
-      </div>
+          <h1>İzin Kayıt</h1>
+          <div class="p-grid">
 
-     <!-- <div class="p-col-12 p-md-2">
-        <label htmlFor="autocomplete">Hakediş</label>
-      </div> 
+            <div class="p-col-12 p-md-2">
+              <label htmlFor="dropdown">Personel</label>
+            </div>
+            <div class="p-col-12 p-md-4">
+              <Dropdown v-model="izin.personelBy" :options="personellistesi" optionLabel="isim"
+                placeholder="Personel Seçiniz" />
+            </div>
 
-      <div class="p-col-12 p-md-4">
-        <label htmlFor="autocomplete" :options="personellistesi" optionLabel="isim">Hakedis</label>
-      </div>  -->
+            <div class="p-col-12 p-md-2">
+              <label htmlFor="dropdown">Ünvan Bilgileri</label>
+            </div>
+            <div class="p-col-12 p-md-4">
+              <Dropdown v-model="izin.personelBy.unvan" :options="unvanlistesi" optionLabel="unvanadi"
+                placeholder="Ünvan Seçiniz" />
+            </div>
 
-      <!-- <div class="p-col-12 p-md-2">
-        <label htmlFor="autocomplete">Personel</label>
-      </div>
-      <div class="p-col-12 p-md-4">
-        <AutoComplete  placeholder="Personel Seçiniz"  @complete="searchPersonelBasic($event)" field="name" />
-      </div> -->
+            <div class="p-col-12 p-md-2">
+              <label htmlFor="dropdown">İzin Türü</label>
+            </div>
+            <div class="p-col-12 p-md-4">
+              <Dropdown v-model="izin.izinTipi" :options="izinturleri" optionLabel="izinTip" optionValue="izinTipId"
+                placeholder="İzin Türü Seçiniz" />
+            </div>
 
-      <div class="p-col-12 p-md-2">
-        <label htmlFor="dropdown">Ünvan Bilgileri</label>
-      </div>
-      <div class="p-col-12 p-md-4">
-        <Dropdown v-model="izin.personelBy.unvan" :options="unvanlistesi"  optionLabel="unvanadi" placeholder="Ünvan Seçiniz" />
-      </div>
+            <div class="p-col-12 p-md-2">
+              <label htmlFor="input">Telefon Numarası</label>
+            </div>
+            <div class="p-col-12 p-md-4">
+              <InputText id="telefon" v-model="izin.telefon" mask="(999) 999-9999" />
+            </div>
+            <div class="p-col-12 p-md-2">
+              <label htmlFor="calendar">Başlangıç Tarihi</label>
+            </div>
+            <div class="p-col-12 p-md-4">
+              <Calendar placeholder="Başlangıç Tarihi Seçiniz" :showIcon="true" v-model="izin.basTarih" dateFormat="dd.mm.yy" />
+            </div>
 
-      <div class="p-col-12 p-md-2">
-        <label htmlFor="dropdown">İzin Türü</label>
-      </div> 
-      <div class="p-col-12 p-md-4">
-        <Dropdown v-model="izin.izinTipi" :options="izinturleri" optionLabel="izinTip" optionValue="izinTipId" placeholder="İzin Türü Seçiniz" />
-      </div>
+            <div class="p-col-12 p-md-2">
+              <label htmlFor="calendar">Bitiş Tarihi</label>
+            </div>
+            <div class="p-col-12 p-md-4">
+              <Calendar placeholder="Bitiş Tarihi Seçiniz" :showIcon="true" dateFormat="dd.mm.yy"
+                v-model="izin.sonTarih" :date-select="izinhesapla()" />
+            </div>
 
-      <div class="p-col-12 p-md-2">
-        <label htmlFor="input">Telefon Numarası</label>
-      </div>
-      <div class="p-col-12 p-md-4">
-        <InputText id="telefon" v-model="izin.telefon" mask="(999) 999-9999" />
-      </div>
-      <div class="p-col-12 p-md-2">
-        <label htmlFor="calendar">Başlangıç Tarihi</label>
-      </div>
-      <div class="p-col-12 p-md-4">
-        <Calendar placeholder="Başlangıç Tarihi Seçiniz" :showIcon="true"  v-model="izin.basTarih" />
-      </div>
-
-      <div class="p-col-12 p-md-2">
-        <label htmlFor="calendar">Bitiş Tarihi</label>
-      </div>
-      <div class="p-col-12 p-md-4">
-        <Calendar placeholder="Bitiş Tarihi Seçiniz" :showIcon="true" mask="99/99/9999"  slotChar="dd/mm/yyyy"
-        v-model="izin.sonTarih"
-
-        />
-      </div>
-
-      <div class="p-col-12 p-md-2">
-        <label htmlFor="input">İzinli Gün</label>
-      </div>
-      <div class="p-col-12 p-md-4">
-        <InputText id="input" v-model="izin.izinSuresi" />
-      </div>
+            <div class="p-col-12 p-md-2">
+              <label htmlFor="input">İzinli Gün</label>
+            </div>
+            <div class="p-col-12 p-md-4">
+              <InputText id="input" v-model="izin.izinSuresi" />
+            </div>
 
 
-      <div class="p-col-12 p-md-2">
-        <label htmlFor="textarea">İzindeki Adresi</label>
-      </div>
-      <div class="p-col-12 p-md-4">
-        <textarea
-          placeholder="Adres"
-          v-model="izin.adres"
-          :autoResize="true"
-          rows="3"
-          cols="72"
-        />
-      </div>
+            <div class="p-col-12 p-md-2">
+              <label htmlFor="textarea">İzindeki Adresi</label>
+            </div>
+            <div class="p-col-12 p-md-4">
+              <Textarea  placeholder="Adres" v-model="izin.adres" :autoResize="true" rows="3" cols="50" />
+              </div>
 
       <div class="p-col-12 p-md-2">
         Yarım Gün?
@@ -105,7 +84,7 @@
     </div>
       <Button label="Kaydet" @click="izinkaydet()" icon="pi pi-check" class="p-button-success" style="width: 10em; margin-right: .25em"/>
 
-      <Button label="İptal" icon="pi pi-times"  class="p-button-danger" style="width: 10em; margin-right: .25em"/>
+      <Button label="İptal" icon="pi pi-times"  @click="$router.push('izinlist')" class="p-button-danger" style="width: 10em; margin-right: .25em"/>
 
 </div>
 
@@ -116,11 +95,3 @@
 
 
 </section>
-
-
-
-
-
-
-
-
