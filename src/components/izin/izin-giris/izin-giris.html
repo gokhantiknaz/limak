@@ -41,7 +41,8 @@
               <label htmlFor="input">Telefon Numarası</label>
             </div>
             <div class="p-col-12 p-md-4">
-              <InputText id="telefon" v-model="izin.telefon" mask="(999) 999-9999" />
+              <!-- <InputText id="telefon" v-model="izin.telefon" mask="(999)-999-9999" /> -->
+              <InputMask id="telefon" mask="(999) 999-9999" v-model="izin.telefon" placeholder="(999) 999-9999" />
             </div>
             <div class="p-col-12 p-md-2">
               <label htmlFor="calendar">Başlangıç Tarihi</label>
@@ -53,11 +54,10 @@
             </div>
 
             <div class="p-col-12 p-md-2">
-              <label htmlFor="calendar">Bitiş Tarihi</label>
+              <label htmlFor="calendar">Bitiş Tarihi2</label>
             </div>
             <div class="p-col-12 p-md-4">
-              <Calendar placeholder="Bitiş Tarihi Seçiniz" :showIcon="true" dateFormat="dd.mm.yy" :locale="tr"
-                v-model="izin.sonTarih" :date-select="izinhesapla()" />
+              <Calendar placeholder="Bitiş Tarihi Seçiniz" :showIcon="true" dateFormat="dd.mm.yy" v-model="izin.sonTarih" :date-select="izinhesapla()" />
             </div>
 
             <div class="p-col-12 p-md-2">
