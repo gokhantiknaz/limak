@@ -1,5 +1,5 @@
 <section class="izin-giris">
-
+{{izin}}
   <div class="p-fluid">
     <div class="p-grid">
       <div class="p-col-12">
@@ -41,14 +41,16 @@
               <label htmlFor="calendar">Başlangıç Tarihi</label>
             </div>
             <div class="p-col-12 p-md-4">
-              <Calendar placeholder="Başlangıç Tarihi Seçiniz" :showIcon="true" v-model="izin.basTarih" dateFormat="dd.mm.yy" />
+              <Calendar placeholder="Başlangıç Tarihi Seçiniz" :showIcon="true"  dateFormat="dd.mm.yy"
+              v-model="izin.basTarih" :locale="tr"
+               />
             </div>
 
             <div class="p-col-12 p-md-2">
               <label htmlFor="calendar">Bitiş Tarihi</label>
             </div>
             <div class="p-col-12 p-md-4">
-              <Calendar placeholder="Bitiş Tarihi Seçiniz" :showIcon="true" dateFormat="dd.mm.yy"
+              <Calendar placeholder="Bitiş Tarihi Seçiniz" :showIcon="true" dateFormat="dd.mm.yy" :locale="tr"
                 v-model="izin.sonTarih" :date-select="izinhesapla()" />
             </div>
 

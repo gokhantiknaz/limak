@@ -19,13 +19,20 @@ export default {
         personelBy: {
 
 
-        },
-        basTarih: null,
-        sonTarih: null,
-        izinTipi: 1,
-        adres: "",
-        telefon: "",
+        }
 
+      },
+      tr: {
+        firstDayOfWeek: 0,
+                dayNames: ["Pazar", "Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma", "Cumartesi"],
+                dayNamesShort: ["Sun", "Pt", "Tue", "Wed", "Thu", "Fri", "Sat"],
+                dayNamesMin: ["Pz","Pt","Sa","Çar","Pe","Cu","Ct"],
+                monthNames: [ "Ocak","Şubat","Mart","Nisan","Mayıs","Haziran","Temmuz","Ağustos","Eylül","Ekim","Kasım","Aralık" ],
+                monthNamesShort: [ "Jan", "Feb", "Mar", "Apr", "May", "Hz","Jul", "Aug", "Sep", "Oct", "Nov", "Dec" ],
+                today: 'Bugün',
+                clear: 'Temizle',
+                dateFormat:"dd.mm.yy",
+                weekHeader: 'Hf'
       }
     }
   },
@@ -51,17 +58,21 @@ export default {
   },
   mounted() {
     if (this.$route.params.izin) {
-      let izin = this.$route.params.izin;
-      
-      this.izin= izin;
+      let tmp = this.$route.params.izin;
+      this.izin = tmp;
+      // moment(this.izin.basTarih).format("YYYY-MM-DD hh:mm:ss A Z")
 
+     // this.izin.basTarih = new Date("2011-10-04T00:00:00.000Z");
     }
   },
   methods: {
     izinhesapla() {
-      const diffTime = Math.abs(this.izin.sonTarih - this.izin.basTarih);
-      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-      this.izin.izinSuresi = diffDays + 1;
+      if (this.izin.basTarih && this.izin.sonTarih) {
+        const diffTime = Math.abs(this.izin.sonTarih - this.izin.basTarih);
+        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+        this.izin.izinSuresi = diffDays + 1;
+      }
+
     },
     izinkaydet() {
 
