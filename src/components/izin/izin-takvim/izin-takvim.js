@@ -21,7 +21,15 @@ export default {
 					center: 'title',
           right: 'dayGridMonth,timeGridWeek,timeGridDay'
 				},
-				editable: true
+        editable: true,
+        dateClick: (e) =>  {
+          console.log(e);
+				alert(e);
+        },
+        eventClick:(e)=>{
+          
+          alert(e.event.title);
+        }
 			},
       events: null,
       

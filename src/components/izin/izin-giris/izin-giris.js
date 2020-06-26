@@ -24,15 +24,15 @@ export default {
       },
       tr: {
         firstDayOfWeek: 0,
-                dayNames: ["Pazar", "Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma", "Cumartesi"],
-                dayNamesShort: ["Sun", "Pt", "Tue", "Wed", "Thu", "Fri", "Sat"],
-                dayNamesMin: ["Pz","Pt","Sa","Çar","Pe","Cu","Ct"],
-                monthNames: [ "Ocak","Şubat","Mart","Nisan","Mayıs","Haziran","Temmuz","Ağustos","Eylül","Ekim","Kasım","Aralık" ],
-                monthNamesShort: [ "Jan", "Feb", "Mar", "Apr", "May", "Hz","Jul", "Aug", "Sep", "Oct", "Nov", "Dec" ],
-                today: 'Bugün',
-                clear: 'Temizle',
-                dateFormat:"dd.mm.yy",
-                weekHeader: 'Hf'
+        dayNames: ["Pazar", "Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma", "Cumartesi"],
+        dayNamesShort: ["Sun", "Pt", "Tue", "Wed", "Thu", "Fri", "Sat"],
+        dayNamesMin: ["Pz", "Pt", "Sa", "Çar", "Pe", "Cu", "Ct"],
+        monthNames: ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"],
+        monthNamesShort: ["Jan", "Feb", "Mar", "Apr", "May", "Hz", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+        today: 'Bugün',
+        clear: 'Temizle',
+        dateFormat: "dd.mm.yy",
+        weekHeader: 'Hf'
       }
     }
   },
@@ -61,8 +61,10 @@ export default {
       let tmp = this.$route.params.izin;
       this.izin = tmp;
       // moment(this.izin.basTarih).format("YYYY-MM-DD hh:mm:ss A Z")
+      // this.izin.basTarih = new Date("2011-10-04T00:00:00.000Z");
 
-     // this.izin.basTarih = new Date("2011-10-04T00:00:00.000Z");
+      let x= this.$moment(this.izin.basTarih)
+      this.izin.basTarih =x.format("YYYY-MM-DD hh:mm:ss A Z");
     }
   },
   methods: {

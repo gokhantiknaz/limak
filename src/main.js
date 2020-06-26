@@ -88,6 +88,17 @@ import 'vuejs-dialog/dist/vuejs-dialog.min.css';
  
 // Tell Vue to install the plugin.
 
+import moment from 'moment';
+import VueMoment from 'vue-moment';
+
+// Load Locales ('tr' comes loaded by default)
+require('moment/locale/tr');
+
+// Choose Locale
+moment.locale('tr');
+
+Vue.use(VueMoment, { moment });
+
 Vue.use(VuejsDialog, {
 	html: true,
 	loader: true,
@@ -97,6 +108,7 @@ Vue.use(VuejsDialog, {
   });
 
 Vue.use(ToastService);
+
 Vue.directive('tooltip', Tooltip);
 
 Vue.config.productionTip = false;
@@ -166,6 +178,8 @@ Vue.component('ValidationMessage', ValidationMessage);
 Vue.component('IzinGiris', IzinGiris);
 Vue.component('IzinList', IzinList);
 Vue.component('IzinTakvim', IzinTakvim);
+
+
 
 new Vue({
 	router,
