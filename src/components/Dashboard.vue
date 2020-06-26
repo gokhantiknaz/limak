@@ -127,32 +127,40 @@
 			<ul>
 				<li>
 					<button class="p-link">
-						<img src="assets/layout/images/avatar_1.png" width="35" alt="avatar1"/>
+						<img src="assets/layout/images/Gokhan.JPG" width="35" alt="avatar1"/>
 						<span class="name">Gökhan TIKNAZOĞLU</span>
-						<span class="email">clare@pf-sigma.com</span>
+						<span class="email">gokhantiknazoglu06@gmail.com</span>
 					</button>
 				</li>
 				<li>
 					<button class="p-link">
 						<img src="assets/layout/images/avatar_2.png" width="35" alt="avatar2"/>
-						<span class="name">Jason Dourne</span>
-						<span class="email">jason@pf-sigma.com</span>
+						<span class="name">Oğuzhan YILMAZ</span>
+						<span class="email">oguzhanyilmaz06@gmail.com</span>
 					</button>
 				</li>
 				<li>
 					<button class="p-link">
 						<img src="assets/layout/images/avatar_3.png" width="35" alt="avatar3"/>
-						<span class="name">Jane Davidson</span>
-						<span class="email">jane@pf-sigma.com</span>
+						<span class="name">Okan TURGUT</span>
+						<span class="email">okanturgut06@gmail.com</span>
 					</button>
 				</li>
 				<li>
 					<button class="p-link">
-						<img src="assets/layout/images/avatar_4.png" width="35" alt="avatar4"/>
-						<span class="name">Tony Corleone</span>
-						<span class="email">tony@pf-sigma.com</span>
+						<img src="assets/layout/images/Selin.JPG" width="35" alt="avatar3"/>
+						<span class="name">Selin KAYA</span>
+						<span class="email">selinKaya06@gmail.com</span>
 					</button>
 				</li>
+				<li>
+					<button class="p-link">
+						<img src="assets/layout/images/Tugce.JPG" width="35" alt="avatar3"/>
+						<span class="name">Tuğçe ELKIRMIŞ</span>
+						<span class="email">tugceelkirmis06@gmail.com</span>
+					</button>
+				</li>
+				
 			</ul>
 		</Panel>
 	</div>

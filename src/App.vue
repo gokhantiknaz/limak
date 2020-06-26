@@ -10,7 +10,7 @@
       >
         <div class="layout-logo">
           <router-link to="/">
-          	<img src="assets/layout/images/limak2.jpeg" width="250" height="70"/>
+          	<img src="assets/layout/images/logo2.svg" width="250" height="70"/>
           </router-link>
         </div>
 
