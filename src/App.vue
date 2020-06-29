@@ -74,7 +74,7 @@ export default {
   watch: {
     $route() {
       this.menuActive = false;
-      this.$toast.removeAllGroups();
+     // this.$toast.removeAllGroups();
     },
   },
   methods: {

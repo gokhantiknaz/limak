@@ -42,6 +42,7 @@
 	},
 	"dependencies": {
 		"vue-moment": "^4.1.0",
+		"vue-toast-notification": "^0.4.1",
 		"vuejs-dialog": "^1.4.1"
 	}
 }

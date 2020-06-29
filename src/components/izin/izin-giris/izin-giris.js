@@ -1,8 +1,10 @@
 import personelService from '../../../service/personelController/personelService';
 import izinService from '../../../service/izinController/izinService';
+import ToastService from 'primevue/toastservice';
+
 export default {
   name: 'izin-list',
-  components: {},
+  components: {ToastService},
   props: [],
   data() {
     return {
@@ -39,9 +41,10 @@ export default {
   created() {
     this.personelServis = new personelService();
     this.izinServis = new izinService();
+ 
     this.personellistesi = [];
 
-
+    
     this.personelServis.getAll().then(
       res => this.personellistesi = res.data.data
 
@@ -78,23 +81,21 @@ export default {
 
       this.izinServis.save(this.izin).then(res => {
         console.log(res)
-        if(res.status=="success")
+        if(res.data.status=="created")
         {
-          this.$toast.add({
-            severity: 'success',
-            summary: 'Kaydedildi',
-            detail: 'İzin Kaydedildi',
-            life: 3000
+
+          this.$toast.success('İzin Kaydedildi', {
+            // override the global option
+            position: 'top-right'
           });
+      
           this.$router.push("izinlist");
         }
         else
         {
-          this.$toast.add({
-            severity: 'error',
-            summary: 'Hata',
-            detail: 'Hata',
-            life: 3000
+          this.$toast.error('İzin Kaydedilemedi', {
+            // override the global option
+            position: 'top-right'
           });
         }
       });

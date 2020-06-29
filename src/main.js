@@ -53,8 +53,8 @@ import SelectButton from 'primevue/selectbutton';
 // import TabMenu from 'primevue/tabmenu';
 // import TieredMenu from 'primevue/tieredmenu';
 import Textarea from 'primevue/textarea';
-import Toast from 'primevue/toast';
-import ToastService from 'primevue/toastservice';
+//import Toast from 'primevue/toast';
+//import ToastService from 'primevue/toastservice';
 import Toolbar from 'primevue/toolbar';
 // import TabView from 'primevue/tabview';
 // import TabPanel from 'primevue/tabpanel';
@@ -81,6 +81,11 @@ import '@fullcalendar/timegrid/main.min.css';
 import './assets/layout/layout.scss';
 
 
+import VueToast from 'vue-toast-notification';
+// Import one of available themes
+import 'vue-toast-notification/dist/theme-default.css';
+
+
 import VuejsDialog from 'vuejs-dialog';
 
 // include the default style
@@ -97,6 +102,12 @@ require('moment/locale/tr');
 // Choose Locale
 moment.locale('tr');
 
+
+Vue.use(VueToast, {
+	// One of options
+	position: 'top-right'
+  })
+
 Vue.use(VueMoment, { moment });
 
 Vue.use(VuejsDialog, {
@@ -107,7 +118,7 @@ Vue.use(VuejsDialog, {
 	animation: 'bounce'
   });
 
-Vue.use(ToastService);
+//Vue.use(ToastService);
 
 Vue.directive('tooltip', Tooltip);
 
@@ -167,7 +178,7 @@ Vue.component('SelectButton', SelectButton);
 // Vue.component('TabPanel', TabPanel);
  Vue.component('Textarea', Textarea);
 // Vue.component('TieredMenu', TieredMenu);
-Vue.component('Toast', Toast);
+//Vue.component('Toast', Toast);
 Vue.component('Toolbar', Toolbar);
 // Vue.component('ToggleButton', ToggleButton);
 // Vue.component('Tree', Tree);
