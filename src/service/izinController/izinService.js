@@ -9,9 +9,17 @@ export default class izinService {
         return result;
     }
      save(izin) {
-        let result =  Axios.post("https://izin.herokuapp.com/api/izin", izin);
+         if(izin._id)
+         {
+            return Axios.put("https://izin.herokuapp.com/api/izin/"+izin.izin_id, izin);
+         }
+         else
+         {
+            return Axios.post("https://izin.herokuapp.com/api/izin", izin);
+         }
+        
 
-        return result;
+        
     }
     delete(id) {
 

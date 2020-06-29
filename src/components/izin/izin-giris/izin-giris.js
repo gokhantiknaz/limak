@@ -59,12 +59,10 @@ export default {
   mounted() {
     if (this.$route.params.izin) {
       let tmp = this.$route.params.izin;
-      this.izin = tmp;
-      // moment(this.izin.basTarih).format("YYYY-MM-DD hh:mm:ss A Z")
-      // this.izin.basTarih = new Date("2011-10-04T00:00:00.000Z");
-
-      let x= this.$moment(this.izin.basTarih)
-      this.izin.basTarih =x.format("YYYY-MM-DD hh:mm:ss A Z");
+       this.izin = tmp;
+  //  //   this.izin.basTarih =x.format("YYYY-MM-DD 00:00:00");
+      this.izin.basTarih =new Date(this.izin.basTarih);
+      this.izin.sonTarih =new Date(this.izin.sonTarih);
     }
   },
   methods: {
@@ -78,15 +76,27 @@ export default {
     },
     izinkaydet() {
 
-      this.izinServis.save(this.izin).then(a => {
-        console.log(a)
-        this.$toast.add({
-          severity: 'success',
-          summary: 'Kaydedildi',
-          detail: 'İzin Kaydedildi',
-          life: 3000
-        });
-        this.$router.push("izinlist");
+      this.izinServis.save(this.izin).then(res => {
+        console.log(res)
+        if(res.status=="success")
+        {
+          this.$toast.add({
+            severity: 'success',
+            summary: 'Kaydedildi',
+            detail: 'İzin Kaydedildi',
+            life: 3000
+          });
+          this.$router.push("izinlist");
+        }
+        else
+        {
+          this.$toast.add({
+            severity: 'error',
+            summary: 'Hata',
+            detail: 'Hata',
+            life: 3000
+          });
+        }
       });
       // deneme
     },
