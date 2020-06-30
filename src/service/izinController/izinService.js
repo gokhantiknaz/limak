@@ -9,15 +9,24 @@ export default class izinService {
         return result;
     }
      save(izin) {
-         if(izin._id)
-         {
-            return Axios.put("https://izin.herokuapp.com/api/izin/"+izin.izin_id, izin);
+         try {
+            if(izin._id)
+            {
+               let res =Axios.put("https://izin.herokuapp.com/api/izin/"+izin.izin_id, izin);
+               console.log(res);
+               return res;
+            }
+            else
+            {
+               let res= Axios.post("https://izin.herokuapp.com/api/izin", izin);
+               console.log(res);
+               return res;
+            }
+               
+         } catch (error) {
+        this.$toast.error("Servisten bir hata alındı.");     
          }
-         else
-         {
-            return Axios.post("https://izin.herokuapp.com/api/izin", izin);
-         }
-        
+         
 
         
     }
@@ -29,6 +38,12 @@ export default class izinService {
    getizinturleri() {
         let result =  Axios.get("https://izin.herokuapp.com/api/izintipi");
         return result;
+    }
+
+    download(id){
+        let result = Axios.get("https://izin.herokuapp.com/api/pdf/"+id);
+        return result;
+
     }
 
 }

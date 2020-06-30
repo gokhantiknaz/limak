@@ -83,7 +83,6 @@ export default {
         console.log(res)
         if(res.data.status=="created")
         {
-
           this.$toast.success('İzin Kaydedildi', {
             // override the global option
             position: 'top-right'

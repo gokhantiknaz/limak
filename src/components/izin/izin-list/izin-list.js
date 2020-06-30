@@ -11,7 +11,12 @@ export default {
       selectedIzin: null,
       izinServis: null,
       word: '',
-      options : { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
+      options: {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      }
     }
   },
   created() {
@@ -30,11 +35,11 @@ export default {
       this.izinServis.getAll().then(
         res => {
           this.izinlistesi = res.data.data
-          this.loading=false;
+          this.loading = false;
         }
       );
     });
-    
+
   },
   methods: {
 
@@ -49,7 +54,27 @@ export default {
     exportCSV() {
       this.$refs.dt.exportCSV();
     },
+
+    downloadItem(item) {
+      this.selectedIzin = item.data;
+      this.izinServis.download(this.selectedIzin._id).then(result=>{
+        console.log(result.data.data);
+        const blob = new Blob([result.data.data], {
+          type: 'application/vnd.ms-word;charset=utf-8'
+        })
+        const link = document.createElement('a')
+        link.href = URL.createObjectURL(blob)
+        link.download = this.selectedIzin.personelBy.isim + '_izin.doc'
+        link.click()
+        URL.revokeObjectURL(link.href)
+
+     
+      });
+    },
+
     belgeindir(item) {
+
+
       this.selectedIzin = item.data;
       this.word = this.selectedIzin.personelBy.isim + "persnoeline ait izindir Başlama:" + this.selectedIzin.BasTarih;
       var vm = this,
@@ -83,7 +108,7 @@ export default {
     izinsil(dialog, item) {
       this.selectedIzin = item.data;
       this.izinServis.delete(this.selectedIzin._id).then(
-        ()=>{
+        () => {
           const idx = this.izinlistesi.indexOf(this.selectedIzin)
           this.izinlistesi.splice(idx, 1)
         }
