@@ -37,7 +37,7 @@ export default {
   data() {
     return {
       layoutMode: "static",
-      layoutColorMode: "dark",
+      layoutColorMode: "light",
       staticMenuInactive: false,
       overlayMenuActive: false,
       mobileMenuActive: false,
