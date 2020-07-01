@@ -5,6 +5,7 @@ export default {
   props: [],
   data() {
     return {
+      filters:{},
       loading: true,
       izinturleri: null,
       izinlistesi: null,
@@ -22,8 +23,6 @@ export default {
   created() {
     this.izinServis = new izinService();
     this.izinlistesi = [];
-
-
   },
   computed: {
 
@@ -56,32 +55,40 @@ export default {
     },
 
     downloadItem(item) {
+
+
+
       this.selectedIzin = item.data;
       this.izinServis.download(this.selectedIzin._id).then(result=>{
-        console.log(result.data.data);
-        const blob = new Blob([result.data.data], {
-          type: 'application/vnd.ms-word;charset=utf-8'
-        })
-        const link = document.createElement('a')
-        link.href = URL.createObjectURL(blob)
-        link.download = this.selectedIzin.personelBy.isim + '_izin.doc'
-        link.click()
-        URL.revokeObjectURL(link.href)
+        
+        var fs = require("fs");
+        fs.writeFile("result_document1.docx", result.data.data, "base64", (error) => {
+          if (error) throw error;
+          console.log("Doc saved!");
+        });
 
-     
+        // const blob = new Blob([result.data.data], {
+        //   type:"application/octet-stream" // vnd.openxmlformats-officedocument.wordprocessingml.document
+        // })
+        
+        // const link = document.createElement('a')
+        // link.href = URL.createObjectURL(blob)
+        // link.download = this.selectedIzin.personelBy.isim + '_izin.docx'
+        // link.click()
+        // URL.revokeObjectURL(link.href)
+    
       });
     },
 
     belgeindir(item) {
 
-
       this.selectedIzin = item.data;
-      this.word = this.selectedIzin.personelBy.isim + "persnoeline ait izindir Başlama:" + this.selectedIzin.BasTarih;
+      this.word = this.selectedIzin.personelBy.isim + " persnoeline ait izindir Başlama:" + this.selectedIzin.basTarih;
       var vm = this,
         word = `<html xmlns:o='urn:schemas-microsoft-com:office:office xmlns:w='urn:schemas-microsoft-com:office:word' 
       xmlns='http://www.w3.org/TR/REC-html40'>
       <head><meta charset='utf-8'>
-      <title>Export HTML to Word Document with JavaScript</title>
+      <title>Personel İzin Formu</title>
       </head>
       <body>${vm.word}</body></html>`;
 

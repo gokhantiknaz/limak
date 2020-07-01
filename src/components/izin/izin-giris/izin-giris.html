@@ -1,11 +1,8 @@
 <section class="izin-giris">
 {{izin}}
-
-<br/>
-<hr/>
-<span>{{ izin.basTarih | moment("dddd, MMMM Do YYYY") }}</span>
-
-
+  <br />
+  <hr />
+  <!-- <span>{{ izin.basTarih | moment("dddd, MMMM Do YYYY") }}</span> -->
   <div class="p-fluid">
     <div class="p-grid">
       <div class="p-col-12">
@@ -48,16 +45,16 @@
               <label htmlFor="calendar">Başlangıç Tarihi</label>
             </div>
             <div class="p-col-12 p-md-4">
-              <Calendar placeholder="Başlangıç Tarihi Seçiniz" :showIcon="true"  dateFormat="dd.mm.yy"
-              v-model="izin.basTarih" :locale="tr"
-               />
+              <Calendar placeholder="Başlangıç Tarihi Seçiniz" :showIcon="true" dateFormat="dd.mm.yy"
+                v-model="izin.basTarih" :locale="tr" />
             </div>
 
             <div class="p-col-12 p-md-2">
               <label htmlFor="calendar">Bitiş Tarihi2</label>
             </div>
             <div class="p-col-12 p-md-4">
-              <Calendar placeholder="Bitiş Tarihi Seçiniz" :showIcon="true" dateFormat="dd.mm.yy" v-model="izin.sonTarih" :date-select="izinhesapla()" />
+              <Calendar placeholder="Bitiş Tarihi Seçiniz" :showIcon="true" dateFormat="dd.mm.yy"
+                v-model="izin.sonTarih" :date-select="izinhesapla()" />
             </div>
 
             <div class="p-col-12 p-md-2">
@@ -72,28 +69,15 @@
               <label htmlFor="textarea">İzindeki Adresi</label>
             </div>
             <div class="p-col-12 p-md-4">
-              <Textarea  placeholder="Adres" v-model="izin.adres" :autoResize="true" rows="3" cols="50" />
+              <Textarea placeholder="Adres" v-model="izin.adres" :autoResize="true" rows="3" cols="50" />
               </div>
-
-      <div class="p-col-12 p-md-2">
-        Yarım Gün?
-      </div>
-      <div class="p-col-12 p-md-4">
-        <div class="p-grid">
-          <div class="p-col-12">
-            <Checkbox
-              id="yarimgun"
-              v-model="izin.yarimgun"
-              :binary="true"
-            />
-          </div>
-        </div>
-      </div>
     </div>
+
+    <div style="text-align: right;"> 
       <Button label="Kaydet" @click="izinkaydet()" icon="pi pi-check" class="p-button-success" style="width: 10em; margin-right: .25em"/>
 
       <Button label="İptal" icon="pi pi-times"  @click="$router.push('izinlist')" class="p-button-danger" style="width: 10em; margin-right: .25em"/>
-
+    </div>
 </div>
 
 </div>

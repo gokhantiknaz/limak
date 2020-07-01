@@ -4,7 +4,7 @@
     <Button label="Yeni Kayıt" style="margin-bottom: 10px" @click="$router.push('izingiris')" />
 
 
-    <DataTable :value="izinlistesi" class="p-datatable-responsive" :selection.sync="selectedIzin" selectionMode="single"
+    <DataTable :value="izinlistesi" :filters="filters" class="p-datatable-responsive" :selection.sync="selectedIzin" selectionMode="single"
       dataKey="_id" :paginator="true" :rows="10" ref="dt" :loading="loading">
       <!-- <template #header>
         <div style="text-align: left">
@@ -24,6 +24,10 @@
           <span class="p-column-title">Ad Soyad</span>
           {{slotProps.data.personelBy.isim}} / {{slotProps.data.personelBy.unvan}}
         </template>
+
+        <template #filter>
+          <InputText type="text" v-model="filters['personelBy.isim']" class="p-column-filter" placeholder="Ad Soyad"   />
+      </template>
 
       </Column>
       <Column field="izinTipi" header="İzin Türü" :sortable="true" filterMatchMode="contains">
