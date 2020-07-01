@@ -5,8 +5,55 @@
    
     <FullCalendar :events="events" :options="options" :selectable="true"/>
  
-    <Dialog header="İzin Detayı" footer="Footer Text" :visible.sync="izindetaygoster">
-      oguzhan
+    <Dialog header="İzin Detayı" :visible.sync="izindetaygoster" :style="{width: '50vw'}">
+
+      <div class="p-col-12">
+        <div class="card card-w-title">
+          <div class="p-grid">
+
+            <div class="p-col-12 p-md-2">
+              <label htmlFor="dropdown">Personel</label>
+            </div>
+            <div class="p-col-12 p-md-4">
+              <Dropdown   optionLabel="isim"
+                placeholder="Personel Seçiniz" />
+            </div>
+    
+            <div class="p-col-12 p-md-2">
+            
+            </div>
+            <div class="p-col-12 p-md-4">
+            
+            </div>
+    
+    
+            <div class="p-col-12 p-md-2">
+              <label htmlFor="calendar">Başlangıç Tarihi</label>
+            </div>
+            <div class="p-col-12 p-md-4">
+              <Calendar placeholder="Başlangıç Tarihi Seçiniz" :showIcon="true" dateFormat="dd.mm.yy"/>
+            </div>
+    
+            <div class="p-col-12 p-md-2">
+              <label htmlFor="calendar">Bitiş Tarihi2</label>
+            </div>
+            <div class="p-col-12 p-md-4">
+              <Calendar placeholder="Bitiş Tarihi Seçiniz" :showIcon="true" dateFormat="dd.mm.yy"
+               />
+            </div>
+          </div>
+        </div>
+
+      
+      </div>
+
+
+
+      <template #footer>
+        <Button label="Kaydet" icon="pi pi-check" @click="Kaydet()" />
+        <Button label="Kapat" icon="pi pi-times" @click="Kapat()" class="p-button-secondary"/>
+    </template>
+  
     </Dialog>
 </section>
 

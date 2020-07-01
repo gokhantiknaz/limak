@@ -61,13 +61,13 @@ export default {
           ],
         },
   
-        {
-          label: "View Source",
-          icon: "pi pi-fw pi-search",
-          command: () => {
-            window.location = "https://github.com/primefaces/sigma-vue";
-          },
-        },
+        // {
+        //   label: "View Source",
+        //   icon: "pi pi-fw pi-search",
+        //   command: () => {
+        //     window.location = "https://github.com/primefaces/sigma-vue";
+        //   },
+        // },
       ],
     };
   },

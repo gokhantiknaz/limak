@@ -12,7 +12,7 @@ export default class izinService {
          try {
             if(izin._id)
             {
-               let res =Axios.put("https://izin.herokuapp.com/api/izin/"+izin.izin_id, izin);
+               let res =Axios.put("https://izin.herokuapp.com/api/izin/"+izin._id, izin);
                console.log(res);
                return res;
             }
