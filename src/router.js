@@ -32,6 +32,11 @@ export default new Router({
 			name: 'documentation',
 			component: () => import('./components/Documentation.vue')
 		},
+		{
+			path: '/izinhakedis',
+			name: 'izinhakedis',
+			component: () => import('./components/izin/izinhakedis/index.vue')
+		},
 	],
 	scrollBehavior() {
 		return {x: 0, y: 0};

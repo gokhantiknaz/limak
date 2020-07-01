@@ -10,7 +10,7 @@
       >
         <div class="layout-logo">
           <router-link to="/">
-          	<img src="assets/layout/images/logo2.svg" width="250" height="70"/>
+            <img src="assets/layout/images/logo2.svg" width="250" height="70" />
           </router-link>
         </div>
 
@@ -60,7 +60,13 @@ export default {
             },
           ],
         },
-  
+        {
+          label: "Hakediş Listesi",
+
+          icon: "pi pi-fw pi-calendar",
+          to: "/izinhakedis",
+        },
+
         // {
         //   label: "View Source",
         //   icon: "pi pi-fw pi-search",
@@ -74,7 +80,7 @@ export default {
   watch: {
     $route() {
       this.menuActive = false;
-     // this.$toast.removeAllGroups();
+      // this.$toast.removeAllGroups();
     },
   },
   methods: {
@@ -184,5 +190,4 @@ export default {
 
 <style lang="scss">
 @import "./App.scss";
-
 </style>

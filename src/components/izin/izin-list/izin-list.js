@@ -1,11 +1,12 @@
 import izinService from '../../../service/izinController/izinService';
+import download from 'downloadjs'
 export default {
   name: 'izin-list',
   components: {},
   props: [],
   data() {
     return {
-      filters:{},
+      filters: {},
       loading: true,
       izinturleri: null,
       izinlistesi: null,
@@ -53,30 +54,27 @@ export default {
     exportCSV() {
       this.$refs.dt.exportCSV();
     },
-
     downloadItem(item) {
-
-
-
       this.selectedIzin = item.data;
-      this.izinServis.download(this.selectedIzin._id).then(result=>{
-        
-        var fs = require("fs");
-        fs.writeFile("result_document1.docx", result.data.data, "base64", (error) => {
-          if (error) throw error;
-          console.log("Doc saved!");
-        });
 
-        // const blob = new Blob([result.data.data], {
-        //   type:"application/octet-stream" // vnd.openxmlformats-officedocument.wordprocessingml.document
-        // })
-        
-        // const link = document.createElement('a')
-        // link.href = URL.createObjectURL(blob)
-        // link.download = this.selectedIzin.personelBy.isim + '_izin.docx'
-        // link.click()
-        // URL.revokeObjectURL(link.href)
-    
+      this.izinServis.download(this.selectedIzin._id).then(result => {
+
+        console.log(result.data);
+
+        const blob = new Blob([result.data], {
+          type: "application/vnd.openxmlformats-officedocument.wordprocessingml.document" // vnd.openxmlformats-officedocument.wordprocessingml.document
+        })
+
+        // download(result.data,"test", "application/vnd.openxmlformats-officedocument.wordprocessingml.document")
+        // console.log(result);
+
+
+        const link = document.createElement('a')
+        link.href = URL.createObjectURL(blob)
+        link.download = this.selectedIzin.personelBy.isim + '_izin.doc'
+        link.click()
+        URL.revokeObjectURL(link.href)
+
       });
     },
 

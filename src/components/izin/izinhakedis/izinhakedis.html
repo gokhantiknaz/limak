@@ -1,0 +1,27 @@
+
+<section class="izinhakedis">
+
+
+  <DataTable :value="izinhakedis"  class="p-datatable-responsive" selectionMode="single"
+  dataKey="_id" :paginator="true" :rows="10" :loading="loading">
+
+  <Column field="personelBy.isim" header="Personel" :sortable="true" headerStyle="width: 20em" bodyStyle="text-align: center">
+       
+    <template #body="slotProps">
+      <span class="p-column-title">Ad Soyad</span>
+      {{slotProps.data.personelBy.isim}} / {{slotProps.data.personelBy.unvan}}
+    </template>
+
+
+
+  </Column>
+  <Column field="kalanIzin" header="Kalan İzin" :sortable="true" filterMatchMode="contains">
+    <template #body="slotProps">
+      <span class="p-column-title">Kalan İzin</span>
+      {{slotProps.data.kalanIzin}}
+    </template>
+
+  </Column>
+  </DataTable>
+</section>
+
