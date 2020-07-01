@@ -58,13 +58,13 @@ export default {
               icon: "pi pi-fw pi-calendar",
               to: "/takvim",
             },
-          ],
-        },
-        {
-          label: "Hakediş Listesi",
+            {
+              label: "Hakediş Listesi",
 
-          icon: "pi pi-fw pi-calendar",
-          to: "/izinhakedis",
+              icon: "pi pi-fw pi-calendar",
+              to: "/izinhakedis",
+            },
+          ],
         },
 
         // {

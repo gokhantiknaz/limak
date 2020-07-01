@@ -59,6 +59,7 @@ export default {
 
       this.izinServis.download(this.selectedIzin._id).then(result => {
 
+
         console.log(result.data);
 
         const blob = new Blob([result.data], {
