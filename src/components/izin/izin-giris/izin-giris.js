@@ -92,7 +92,7 @@ export default {
         }
         else
         {
-          this.$toast.error('İzin Kaydedilemedi', {
+          this.$toast.error('İzin Kaydedildi.', {
             // override the global option
             position: 'top-right'
           });
