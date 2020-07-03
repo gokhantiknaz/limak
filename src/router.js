@@ -37,6 +37,16 @@ export default new Router({
 			name: 'izinhakedis',
 			component: () => import('./components/izin/izinhakedis/index.vue')
 		},
+		{
+			path: '/personelgiris',
+			name: 'personelgiris',
+			component: () => import('./components/personel/personelgiris/index.vue')
+		},
+		{
+			path: '/personellist',
+			name: 'personellist',
+			component: () => import('./components/personel/personellist/index.vue')
+		},
 	],
 	scrollBehavior() {
 		return {x: 0, y: 0};

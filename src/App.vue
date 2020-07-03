@@ -66,6 +66,20 @@ export default {
             },
           ],
         },
+        {
+          label:"Personel Giriş",
+         items :[
+            {
+              label: "Personel Giriş",              
+              to: "/personelgiris",
+            },
+             {
+              label: "Personel Listesi",              
+              to: "/personellist",
+            },
+         ]
+         
+        },
 
         // {
         //   label: "View Source",
