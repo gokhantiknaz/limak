@@ -1,10 +1,8 @@
 import personelService from '../../../service/personelController/personelService';
 import izinService from '../../../service/izinController/izinService';
-import ToastService from 'primevue/toastservice';
-
 export default {
-  name: 'izin-list',
-  components: {ToastService},
+  name: 'izin-giris',
+  components: {},
   props: [],
   data() {
     return {
@@ -80,26 +78,38 @@ export default {
     },
     izinkaydet() {
 
-      this.izinServis.save(this.izin).then(res => {
-        console.log(res)
-        if(res.data.status=="created")
-        {
-          this.$toast.success('İzin Kaydedildi', {
-            // override the global option
-            position: 'top-right'
-          });
-      
-          this.$router.push("izinlist");
+      this.izinServis.save(this.izin).then(
+        result=>{
+          console.log(result);
+          if(result.status=="created")
+          {
+            setTimeout(() => {
+              this.$toast.add({severity:'success', summary: 'Bilgi Mesajı', detail:'İzin Başarıyla Kaydedildi', life: 3000});  
+            }, 300);
+            
+            this.$router.push("izinlist");
+          }
+          else if(result.status =="error")
+          {
+            setTimeout(() => {
+              let msg = "";
+              result.errors.forEach(element => {
+                msg+=element.msg + " <br>"
+              });
+              this.$toast.add({severity:'error', summary: 'Hata Mesajı', detail:msg, life: 3000});  
+            }, 300);
+          }
+          else {
+            setTimeout(() => {
+              this.$toast.add({severity:'error', summary: 'Bilgi Mesajı', detail:'İzin Başarıyla Güncellendi', life: 3000});  
+            }, 300);
+            
+            this.$router.push("izinlist");
+          }
         }
-        else
-        {
-          this.$toast.error('İzin Kaydedildi.', {
-            // override the global option
-            position: 'top-right'
-          });
-        }
-      });
-      // deneme
+      ); 
+
+     
     },
 
   }

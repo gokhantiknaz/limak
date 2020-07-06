@@ -1,7 +1,7 @@
 <template>
   <div :class="containerClass" @click="onWrapperClick">
     <AppTopBar @menu-toggle="onMenuToggle" />
-
+   <Toast />
     <transition name="layout-sidebar">
       <div
         :class="sidebarClass"
@@ -43,45 +43,48 @@ export default {
       mobileMenuActive: false,
       menu: [
         { label: "Dashboard", icon: "pi pi-fw pi-home", to: "/" },
-
         {
-          label: "izin İşlemleri",
-          icon: "pi pi-fw pi-calendar",
+          label: "Personeo Modülü",
           items: [
             {
-              label: "İzin Listesi",
-              icon: "pi pi-fw pi-pencil",
-              to: "/izinlist",
+              label: "Personel İşlemleri",
+              icon: "pi pi-fw pi-user",
+              items: [
+                {
+                  label: "Personel Giriş",
+                  icon: "pi pi-fw pi-user",
+                  to: "/personelgiris",
+                },
+                {
+                  label: "Personel Listesi",
+                  to: "/personellist",
+                  icon: "pi pi-fw pi-user",
+                },
+              ],
             },
             {
-              label: "İzin Takvim",
+              label: "izin İşlemleri",
               icon: "pi pi-fw pi-calendar",
-              to: "/takvim",
-            },
-            {
-              label: "Hakediş Listesi",
+              items: [
+                {
+                  label: "İzin Listesi",
+                  icon: "pi pi-fw pi-pencil",
+                  to: "/izinlist",
+                },
+                {
+                  label: "İzin Takvim",
+                  icon: "pi pi-fw pi-calendar",
+                  to: "/takvim",
+                },
+                {
+                  label: "Hakediş Listesi",
 
-              icon: "pi pi-fw pi-calendar",
-              to: "/izinhakedis",
+                  icon: "pi pi-fw pi-calendar",
+                  to: "/izinhakedis",
+                },
+              ],
             },
           ],
-        },
-        {
-          label:"Personel İşlemleri",
-          icon : "pi pi-fw pi-user",
-         items :[
-            {
-              label: "Personel Giriş",  
-              icon : "pi pi-fw pi-user",            
-              to: "/personelgiris",
-            },
-             {
-              label: "Personel Listesi",              
-              to: "/personellist",
-              icon : "pi pi-fw pi-user",
-            },
-         ]
-         
         },
 
         // {
@@ -97,7 +100,7 @@ export default {
   watch: {
     $route() {
       this.menuActive = false;
-      // this.$toast.removeAllGroups();
+      this.$toast.removeAllGroups();
     },
   },
   methods: {

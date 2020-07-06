@@ -5,7 +5,9 @@ import izinService from '../../../service/izinController/izinService';
 
 export default {
   name: 'izin-takvim',
-  components: {},
+  components: {
+    
+  },
   props: [],
   data() {
     return {
@@ -52,18 +54,16 @@ export default {
   },
   methods: {
 
-Kapat(){
-this.izindetaygoster = false;
-},
-Kaydet(){
+    Kapat() {
+      this.izindetaygoster = false;
+    },
+    Kaydet() {
 
-  this.$toast.success('İzin Kaydedildi', {
-    // override the global option
-  });
+			this.$toast.add({severity:'info', summary: 'Info Message', detail:'Test', life: 3000});
+     
+      this.izindetaygoster = false;
+    },
 
-  this.izindetaygoster = false;
-},
-   
     onEventClick() {
       this.izindetaygoster = true
     },

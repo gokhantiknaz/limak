@@ -1,6 +1,8 @@
 import izinService from '../../../service/izinController/izinService';
-import download from 'downloadjs'
+// import download from 'downloadjs'
+
 export default {
+  
   name: 'izin-list',
   components: {},
   props: [],
@@ -42,6 +44,8 @@ export default {
 
   },
   methods: {
+
+    
 
     getizinturadi(izinturid) {
       let isim = this.izinturleri.find(a => a.izinTipId == izinturid);

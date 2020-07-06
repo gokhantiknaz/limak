@@ -27,11 +27,11 @@ export default new Router({
 			name: 'izintakvim',
 			component: () => import('./components/izin/izin-takvim/index.vue')
 		},
-		{
-			path: '/documentation',
-			name: 'documentation',
-			component: () => import('./components/Documentation.vue')
-		},
+		// {
+		// 	path: '/documentation',
+		// 	name: 'documentation',
+		// 	component: () => import('./components/Documentation.vue')
+		// },
 		{
 			path: '/izinhakedis',
 			name: 'izinhakedis',

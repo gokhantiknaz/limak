@@ -53,8 +53,8 @@ import SelectButton from 'primevue/selectbutton';
 // import TabMenu from 'primevue/tabmenu';
 // import TieredMenu from 'primevue/tieredmenu';
 import Textarea from 'primevue/textarea';
-//import Toast from 'primevue/toast';
-//import ToastService from 'primevue/toastservice';
+import Toast from 'primevue/toast';
+import ToastService from 'primevue/toastservice';
 import Toolbar from 'primevue/toolbar';
 import TabView from 'primevue/tabview';
 import TabPanel from 'primevue/tabpanel';
@@ -66,7 +66,7 @@ import TabPanel from 'primevue/tabpanel';
 import ValidationMessage from 'primevue/validationmessage';
 
 
-import IzinGiris from './components/izin/izin-giris/izin-giris'
+import IzinGiris from './components/izin/izin-giris/index.vue'
 import IzinList from './components/izin/izin-list/izin-list'
 import IzinTakvim from './components/izin/izin-takvim/izin-takvim'
 
@@ -80,11 +80,7 @@ import '@fullcalendar/daygrid/main.min.css';
 import '@fullcalendar/timegrid/main.min.css';
 import './assets/layout/layout.scss';
 
-
-import VueToast from 'vue-toast-notification';
 // Import one of available themes
-import 'vue-toast-notification/dist/theme-default.css';
-
 
 import VuejsDialog from 'vuejs-dialog';
 
@@ -102,12 +98,6 @@ require('moment/locale/tr');
 // Choose Locale
 moment.locale('tr');
 
-
-Vue.use(VueToast, {
-	// One of options
-	position: 'top-right'
-  })
-
 Vue.use(VueMoment, { moment });
 
 Vue.use(VuejsDialog, {
@@ -118,12 +108,9 @@ Vue.use(VuejsDialog, {
 	animation: 'bounce'
   });
 
-//Vue.use(ToastService);
-
+Vue.use(ToastService);
 Vue.directive('tooltip', Tooltip);
-
 Vue.config.productionTip = false;
-
 // Vue.component('Accordion', Accordion);
 // Vue.component('AccordionTab', AccordionTab);
 Vue.component('AutoComplete', AutoComplete);
@@ -134,6 +121,7 @@ Vue.component('Card', Card);
 Vue.component('Carousel', Carousel);
 Vue.component('Chart', Chart);
 Vue.component('Checkbox', Checkbox);
+Vue.component('Toast', Toast);
 // Vue.component('Chips', Chips);
 Vue.component('Column', Column);
 Vue.component('ContextMenu', ContextMenu);
@@ -178,7 +166,6 @@ Vue.component('TabView', TabView);
 Vue.component('TabPanel', TabPanel);
  Vue.component('Textarea', Textarea);
 // Vue.component('TieredMenu', TieredMenu);
-//Vue.component('Toast', Toast);
 Vue.component('Toolbar', Toolbar);
 // Vue.component('ToggleButton', ToggleButton);
 // Vue.component('Tree', Tree);

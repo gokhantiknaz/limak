@@ -45,7 +45,6 @@
 		"downloadjs": "^1.4.7",
 		"express": "^4.17.1",
 		"vue-moment": "^4.1.0",
-		"vue-toast-notification": "^0.4.1",
 		"vuejs-dialog": "^1.4.1"
 	}
 }
