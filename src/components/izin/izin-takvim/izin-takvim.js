@@ -59,10 +59,8 @@ export default {
     },
     Kaydet() {
 
-      this.$toast.success('İzin Kaydedildi', {
-        // override the global option
-      });
-
+			this.$toast.add({severity:'info', summary: 'Info Message', detail:'Test', life: 3000});
+     
       this.izindetaygoster = false;
     },
 

@@ -1,7 +1,7 @@
 <template>
   <div :class="containerClass" @click="onWrapperClick">
     <AppTopBar @menu-toggle="onMenuToggle" />
-
+   <Toast />
     <transition name="layout-sidebar">
       <div
         :class="sidebarClass"
@@ -100,7 +100,7 @@ export default {
   watch: {
     $route() {
       this.menuActive = false;
-      // this.$toast.removeAllGroups();
+      this.$toast.removeAllGroups();
     },
   },
   methods: {

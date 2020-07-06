@@ -45,6 +45,8 @@ export default {
   },
   methods: {
 
+    
+
     getizinturadi(izinturid) {
       let isim = this.izinturleri.find(a => a.izinTipId == izinturid);
 
