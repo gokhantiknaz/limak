@@ -122,6 +122,17 @@ export default {
       this.selectedIzin = null;
       dialog.close();
 
+    },
+    izinonayla(dialog,item){
+      this.selectedIzin = item.data;
+      this.izinServis.izindurumları(this.selectedIzin._id).then(
+        ()=>{
+          const idx = this.izindurumları.indexOf(this.selectedIzin)
+          this.izindurumları.splice(idx,1)
+        }
+      );
+      this.izindurumları = null;
+      dialog.close();
     }
   }
 }

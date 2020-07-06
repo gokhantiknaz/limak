@@ -55,6 +55,7 @@ export default {
     });
 
     this.unvanlistesi = this.personelServis.getunvanBilgiler();
+    this.izinonaydurumlari = this.personelServis.izinonaydurumlari();
   },
   computed: {
 

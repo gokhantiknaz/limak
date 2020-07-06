@@ -45,6 +45,23 @@ export default class izinService {
         ]
     }
 
+    izindurumları()
+    {
+        return [
+            {
+                izinonayAdi:"Yönetici Onay Bekliyor",
+            },
+            {
+                izinonayAdi:"Üst Yönetici Onay Bekliyor",
+            },
+            {
+                izinonayAdi:"Onaylandı",
+            },
+            {
+                izinonayAdi:"Reddedildi",
+            },
+        ]
+    }
     getizinturleri()
         {
             return [{

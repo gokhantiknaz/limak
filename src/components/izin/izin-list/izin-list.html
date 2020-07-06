@@ -69,7 +69,7 @@
         </template>
 
       </Column>
-      <Column headerStyle="width: 10em; text-align: center" bodyStyle="text-align: center">
+      <Column headerStyle="width: 16em; text-align: center" bodyStyle="text-align: center">
 
         <template #header>
           <Button type="button" icon="pi pi-cog"></Button>
@@ -83,6 +83,11 @@
             loader:true,
             ok:dialog=> izinsil(dialog,slotProps), 
             message: 'İzin silinecek. Emin misiniz?'
+          }"></Button>
+          <Button type="button" icon="pi pi-external-link" class="p-datatable-responsive" v-confirm="{
+            loader:true,
+            ok:dialog=> izinonayla(dialog,slotProps), 
+            message: 'İzin onay durumu değişicektir. Değişikliği yapmaya Emin misiniz?'
           }"></Button>
         </template>
       </Column>
