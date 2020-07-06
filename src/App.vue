@@ -44,7 +44,7 @@ export default {
       menu: [
         { label: "Dashboard", icon: "pi pi-fw pi-home", to: "/" },
         {
-          label: "Personeo Modülü",
+          label: "Personel Modülü",
           items: [
             {
               label: "Personel İşlemleri",
