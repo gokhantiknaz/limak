@@ -45,8 +45,8 @@ export default {
         { label: "Dashboard", icon: "pi pi-fw pi-home", to: "/" },
 
         {
-          label: "Personel İşlemleri",
-          icon: "pi pi-fw pi-user",
+          label: "izin İşlemleri",
+          icon: "pi pi-fw pi-calendar",
           items: [
             {
               label: "İzin Listesi",
@@ -65,6 +65,23 @@ export default {
               to: "/izinhakedis",
             },
           ],
+        },
+        {
+          label:"Personel İşlemleri",
+          icon : "pi pi-fw pi-user",
+         items :[
+            {
+              label: "Personel Giriş",  
+              icon : "pi pi-fw pi-user",            
+              to: "/personelgiris",
+            },
+             {
+              label: "Personel Listesi",              
+              to: "/personellist",
+              icon : "pi pi-fw pi-user",
+            },
+         ]
+         
         },
 
         // {

@@ -1,0 +1,60 @@
+
+<section class="personelgiris">
+  
+	
+  <div class="p-col-12">
+    <div class="card card-w-title">
+      <h1>Personel Giriş Kayıt</h1>
+      <TabView>
+        <TabPanel header="kişisel Bilgiler">
+        
+          <div class="p-fluid">
+            <div class="p-grid">
+              <div class="p-col-12">
+                <div class="card card-w-title">                
+                  <div class="p-grid">
+                    <div class="p-col-12">
+                      <InputText type="text" placeholder="Ad" />
+                    </div>
+                    <div class="p-col-12">
+                      <InputText type="text" placeholder="Soyad" />
+                    </div>
+                    <div class="p-col-12">
+                      <Calendar placeholder="doğum tarihi" v-model="date5" :showIcon="true" />
+                    </div>
+                    <div class="p-col-12 p-md-4">
+                      <InputText placeholder="Email"/>
+                    </div>
+                    <div class="p-col-12 p-md-4">
+                      <InputMask id="telefon" mask="(999) 999-9999" placeholder="(111) 111-1111 cep telefon" />
+                     
+                    </div>
+                    <div class="p-col-12 p-md-4">
+                      <InputText placeholder="adres" />
+                    </div>
+                  
+    <div style="text-align: right;"> 
+      <Button label="Kaydet" icon="pi pi-check" class="p-button-success" style="width: 10em; margin-right: .25em"/>
+
+      <Button label="İptal" icon="pi pi-times"   class="p-button-danger" style="width: 10em; margin-right: .25em"/>
+    </div>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        
+         
+        </TabPanel>
+        <TabPanel header="Eğitim Bilgileri">
+         
+        </TabPanel>
+        <TabPanel header="Diğer Bilgiler">
+         
+        </TabPanel>
+      </TabView>
+    </div>
+  </div>
+
+</section>
