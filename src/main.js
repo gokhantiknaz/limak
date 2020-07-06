@@ -66,7 +66,7 @@ import Toolbar from 'primevue/toolbar';
 import ValidationMessage from 'primevue/validationmessage';
 
 
-import IzinGiris from './components/izin/izin-giris/izin-giris'
+import IzinGiris from './components/izin/izin-giris/index.vue'
 import IzinList from './components/izin/izin-list/izin-list'
 import IzinTakvim from './components/izin/izin-takvim/izin-takvim'
 

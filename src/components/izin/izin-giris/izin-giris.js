@@ -3,7 +3,7 @@ import izinService from '../../../service/izinController/izinService';
 import ToastService from 'primevue/toastservice';
 
 export default {
-  name: 'izin-list',
+  name: 'izin-giris',
   components: {ToastService},
   props: [],
   data() {
